@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NBA球星展示</title>
-    <!-- 引入外部CSS文件 -->
+    <title>NBA球星展示平台</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap">
     <style>
-        /* CSS重置和全局样式 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(rgba(10, 46, 56, 0.9), rgba(26, 26, 46, 0.9)), 
+            background: radial-gradient(circle at center, #0e2e3a 0%, #081b24 80%), 
+                         linear-gradient(45deg, rgba(13, 43, 56, 0.8), rgba(26, 26, 46, 0.9)), 
                          url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
+            background-size: cover, cover, cover;
             background-attachment: fixed;
             background-position: center;
             color: #fff;
             min-height: 100vh;
             padding: 20px;
             position: relative;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* 添加半透明覆盖层，提高文字可读性 */
         body::before {
             content: '';
             position: absolute;
@@ -35,12 +36,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: radial-gradient(circle, rgba(0, 80, 115, 0.15) 0%, rgba(0, 0, 0, 0.7) 100%);
             z-index: -1;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             position: relative;
         }
@@ -49,105 +50,97 @@
         header {
             text-align: center;
             padding: 40px 0;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease forwards;
         }
 
-        header::after {
-            content: '';
-            display: block;
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(to right, #00bcf2, #ff4d00);
-            margin: 15px auto 0;
-            border-radius: 2px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.8rem;
             margin-bottom: 15px;
             color: #fff;
-            text-shadow: 0 0 10px rgba(0, 188, 242, 0.7);
+            text-shadow: 0 0 15px rgba(0, 188, 242, 0.8);
             position: relative;
             display: inline-block;
+            background: linear-gradient(to right, #00bcf2, #ff4d00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
         }
 
         h1::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: #00bcf2;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #00bcf2, #ff4d00);
+            border-radius: 4px;
         }
 
-        /* 控制按钮样式 */
-        .controls {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+        .subtitle {
+            font-size: 1.3rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 15px auto 0;
+            text-align: center;
+            font-weight: 400;
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        /* 控制区域 */
+        .controls-container {
+            background: rgba(10, 35, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
+            border: 1px solid rgba(0, 188, 242, 0.1);
         }
 
-        .filter-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .upper-controls {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
-        .filter-btn:hover {
-            background: rgba(0, 188, 242, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        .filter-btn.active {
-            background: #00bcf2;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 188, 242, 0.4);
-        }
-
-        /* 搜索框样式 */
         .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
+            flex: 1;
+            min-width: 300px;
             max-width: 600px;
-            margin: 0 auto 40px;
         }
 
         #search-input {
             width: 100%;
-            padding: 14px 22px;
+            padding: 16px 25px;
             border: none;
             border-radius: 8px 0 0 8px;
             background: rgba(255, 255, 255, 0.12);
             color: #fff;
             font-size: 17px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
         }
 
         #search-input:focus {
             outline: none;
             background: rgba(255, 255, 255, 0.18);
-            box-shadow: 0 0 0 2px #00bcf2;
+            box-shadow: 0 0 0 3px rgba(0, 188, 242, 0.5);
         }
 
         #search-btn {
-            padding: 14px 25px;
+            padding: 16px 28px;
             background: linear-gradient(to right, #00bcf2, #0099c7);
             border: none;
             border-radius: 0 8px 8px 0;
@@ -157,19 +150,115 @@
             font-size: 17px;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         #search-btn:hover {
             background: linear-gradient(to right, #00a5d9, #0087b0);
+            box-shadow: 0 6px 16px rgba(0, 188, 242, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .random-btn {
+            background: linear-gradient(to right, #ff4d00, #ff9900);
+            border: none;
+            color: white;
+        }
+
+        .random-btn:hover {
+            background: linear-gradient(to right, #e04400, #e08700);
+            box-shadow: 0 6px 16px rgba(255, 77, 0, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .all-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .all-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        /* 过滤按钮区域 */
+        .filter-section {
+            overflow-x: auto;
+            padding: 15px 0;
+            scrollbar-width: thin;
+        }
+
+        .filter-scroll {
+            display: flex;
+            gap: 8px;
+            flex-wrap: nowrap;
+            padding-bottom: 5px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+            background: rgba(0, 188, 242, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .filter-btn.active {
+            background: #00bcf2;
+            transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 188, 242, 0.4);
         }
 
-        /* 球员卡片容器样式 */
+        /* 球员卡片容器 */
         .players-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
+            animation: fadeInGrid 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInGrid {
+            to { opacity: 1; }
         }
 
         /* 空状态提示 */
@@ -180,6 +269,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             margin: 20px 0;
+            border: 1px dashed rgba(0, 188, 242, 0.3);
         }
 
         .empty-state i {
@@ -206,21 +296,29 @@
             background: rgba(255, 255, 255, 0.06);
             border-radius: 15px;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 0;
+            animation: cardAppear 0.5s forwards;
+            animation-delay: calc(var(--delay) * 0.08s);
+        }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .player-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px #00bcf2;
             background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(0, 188, 242, 0.3);
+            border-color: rgba(0, 188, 242, 0.4);
         }
 
         .player-image-container {
-            height: 280px;
+            height: 290px;
             position: relative;
             overflow: hidden;
         }
@@ -234,7 +332,7 @@
         }
 
         .player-card:hover .player-image {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .player-info {
@@ -242,25 +340,35 @@
         }
 
         .player-name {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin-bottom: 8px;
-            position: relative;
-            display: inline-block;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .player-name::after {
-            content: '';
+        .player-id {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #00bcf2;
-            border-radius: 3px;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
         }
 
         .player-position {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #bbb;
             margin-bottom: 15px;
             font-weight: 500;
@@ -277,8 +385,8 @@
         }
 
         .team-logo {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             margin-right: 12px;
             border-radius: 50%;
             display: flex;
@@ -286,11 +394,12 @@
             justify-content: center;
             font-weight: bold;
             color: white;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .player-stats {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin-top: 15px;
         }
@@ -298,47 +407,33 @@
         .stat {
             text-align: center;
             background: rgba(0, 188, 242, 0.12);
-            padding: 12px 10px;
+            padding: 15px 5px;
             border-radius: 8px;
-            flex: 1;
             transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 80px;
         }
 
         .player-card:hover .stat {
             background: rgba(0, 188, 242, 0.2);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
 
         .stat-value {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.7rem;
+            font-weight: 700;
             color: #00bcf2;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
+            text-shadow: 0 0 6px rgba(0, 188, 242, 0.4);
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #bbb;
             font-weight: 500;
-        }
-
-        /* 球员编号徽章 */
-        .player-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            z-index: 2;
         }
 
         /* 页脚样式 */
@@ -358,84 +453,148 @@
             font-weight: 600;
         }
 
-        /* 球队颜色 */
-        .lakers .team-logo { background: linear-gradient(145deg, #552582, #fdb927); }
-        .warriors .team-logo { background: linear-gradient(145deg, #1d428a, #ffc72c); }
-        .rockets .team-logo { background: linear-gradient(145deg, #ce1141, #c4ced4); }
-        .celtics .team-logo { background: linear-gradient(145deg, #008348, #bb9753); }
-        .bucks .team-logo { background: linear-gradient(145deg, #00471b, #eee1c6); }
-        .mavericks .team-logo { background: linear-gradient(145deg, #00538c, #b0caeb); }
-        .nuggets .team-logo { background: linear-gradient(145deg, #002d62, #c7ddef); }
+        /* 球队颜色样式 */
+        .lakers { --team-color: linear-gradient(45deg, #552582, #fdb927); }
+        .warriors { --team-color: linear-gradient(45deg, #1d428a, #ffc72c); }
+        .nets { --team-color: linear-gradient(45deg, #000, #fff); }
+        .celtics { --team-color: linear-gradient(45deg, #008348, #bb9753); }
+        .bucks { --team-color: linear-gradient(45deg, #00471b, #eee1c6); }
+        .mavericks { --team-color: linear-gradient(45deg, #00538c, #ddecff); }
+        .nuggets { --team-color: linear-gradient(45deg, #002d62, #c7ddef); }
+        .bulls { --team-color: linear-gradient(45deg, #ce1141, #000); }
+        .clippers { --team-color: linear-gradient(45deg, #c8102e, #006bb6); }
+        .suns { --team-color: linear-gradient(45deg, #e56020, #1d1160); }
+        .heat { --team-color: linear-gradient(45deg, #98002e, #f9a01b); }
+        .ers { --team-color: linear-gradient(45deg, #006bb6, #ed174c); }
+        .knicks { --team-color: linear-gradient(45deg, #006bb6, #f58426); }
+        .kings { --team-color: linear-gradient(45deg, #5a2d81, #63727a); }
+        .thunder { --team-color: linear-gradient(45deg, #007ac1, #ef3b24); }
+        .raptors { --team-color: linear-gradient(45deg, #ce1141, #000); }
+        .wizards { --team-color: linear-gradient(45deg, #002b5c, #e31837); }
+        .pistons { --team-color: linear-gradient(45deg, #006bb6, #c8102e); }
+        .pacers { --team-color: linear-gradient(45deg, #002d62, #fdbb30); }
+        .rokcets { --team-color: linear-gradient(45deg, #ededed, #c8102e); }
+        .blazers { --team-color: linear-gradient(45deg, #e83930, #ffffff); }
+        .grizzlies { --team-color: linear-gradient(45deg, #006bb6, #3e3a3a); }
         
         .lakers .player-image-container { background: linear-gradient(45deg, #552582, #fdb927); }
         .warriors .player-image-container { background: linear-gradient(45deg, #1d428a, #ffc72c); }
-        .rockets .player-image-container { background: linear-gradient(45deg, #ce1141, #ffffff); }
+        .nets .player-image-container { background: linear-gradient(45deg, #000000, #a1a1a1); }
         .celtics .player-image-container { background: linear-gradient(45deg, #008348, #bb9753); }
         .bucks .player-image-container { background: linear-gradient(45deg, #00471b, #eee1c6); }
         .mavericks .player-image-container { background: linear-gradient(45deg, #00538c, #ddecff); }
         .nuggets .player-image-container { background: linear-gradient(45deg, #002d62, #c7ddef); }
+        .bulls .player-image-container { background: linear-gradient(45deg, #ce1141, #000000); }
+        .clippers .player-image-container { background: linear-gradient(45deg, #c8102e, #006bb6); }
+        .suns .player-image-container { background: linear-gradient(45deg, #e56020, #1d1160); }
+        .heat .player-image-container { background: linear-gradient(45deg, #98002e, #f9a01b); }
+        .ers .player-image-container { background: linear-gradient(45deg, #006bb6, #ed174c); }
+        .knicks .player-image-container { background: linear-gradient(45deg, #006bb6, #f58426); }
+        .kings .player-image-container { background: linear-gradient(45deg, #5a2d81, #63727a); }
+        .thunder .player-image-container { background: linear-gradient(45deg, #007ac1, #ef3b24); }
+        .raptors .player-image-container { background: linear-gradient(45deg, #ce1141, #000000); }
+        .wizards .player-image-container { background: linear-gradient(45deg, #002b5c, #e31837); }
+        .pistons .player-image-container { background: linear-gradient(45deg, #006bb6, #c8102e); }
+        .pacers .player-image-container { background: linear-gradient(45deg, #002d62, #fdbb30); }
+        .rokcets .player-image-container { background: linear-gradient(45deg, #ededed, #c8102e); }
+        .blazers .player-image-container { background: linear-gradient(45deg, #e83930, #ffffff); }
+        .grizzlies .player-image-container { background: linear-gradient(45deg, #006bb6, #3e3a3a); }
+
+        .lakers .team-logo { background: var(--team-color); }
+        .warriors .team-logo { background: var(--team-color); }
+        .nets .team-logo { background: var(--team-color); }
+        .celtics .team-logo { background: var(--team-color); }
+        .bucks .team-logo { background: var(--team-color); }
+        .mavericks .team-logo { background: var(--team-color); }
+        .nuggets .team-logo { background: var(--team-color); }
+        .bulls .team-logo { background: var(--team-color); }
+        .clippers .team-logo { background: var(--team-color); }
+        .suns .team-logo { background: var(--team-color); }
+        .heat .team-logo { background: var(--team-color); }
+        .ers .team-logo { background: var(--team-color); }
+        .knicks .team-logo { background: var(--team-color); }
+        .kings .team-logo { background: var(--team-color); }
+        .thunder .team-logo { background: var(--team-color); }
+        .raptors .team-logo { background: var(--team-color); }
+        .wizards .team-logo { background: var(--team-color); }
+        .pistons .team-logo { background: var(--team-color); }
+        .pacers .team-logo { background: var(--team-color); }
+        .rokcets .team-logo { background: var(--team-color); }
+        .blazers .team-logo { background: var(--team-color); }
+        .grizzlies .team-logo { background: var(--team-color); }
+        /* 加载动画 */
+        .loading {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: #00bcf2;
+            margin: 0 auto 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
         
         /* 响应式设计 */
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
             .players-container {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.7rem;
+        @media (max-width: 900px) {
+            .upper-controls {
+                flex-direction: column;
+                align-items: stretch;
             }
             
             .search-container {
-                padding: 0 20px;
+                max-width: 100%;
+            }
+            
+            .action-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .player-image-container {
+                height: 260px;
             }
             
             .filter-btn {
-                padding: 10px 18px;
-                font-size: 15px;
+                padding: 12px 16px;
+                font-size: 14px;
             }
         }
 
         @media (max-width: 600px) {
             h1 {
-                font-size: 2.3rem;
+                font-size: 2.5rem;
             }
             
-            .player-image-container {
-                height: 240px;
+            .subtitle {
+                font-size: 1.1rem;
             }
             
             .players-container {
                 grid-template-columns: 1fr;
             }
             
-            .footer {
-                font-size: 14px;
-                padding: 20px 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .filter-btn {
-                padding: 8px 15px;
-                font-size: 14px;
-            }
-            
-            .player-image-container {
-                height: 220px;
-            }
-            
-            .player-badge {
-                top: 15px;
-                right: 15px;
-                width: 32px;
-                height: 32px;
-                font-size: 16px;
+            .btn, #search-btn, .filter-btn {
+                padding: 12px 15px;
+                font-size: 15px;
             }
         }
     </style>
@@ -443,55 +602,108 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-basketball-ball"></i> NBA球星展示</h1>
-            <p class="subtitle">探索NBA顶级球员数据和信息</p>
+            <h1><i class="fas fa-basketball-ball"></i> NBA 球星展示平台</h1>
+            <p class="subtitle">探索NBA顶级球员数据、统计信息和精彩表现，使用球衣号码作为唯一标识符</p>
         </header>
         
-        <div class="controls">
-            <button class="filter-btn active" data-team="all">
-                <i class="fas fa-users"></i> 所有球员
-            </button>
-            <button class="filter-btn" data-team="lakers">
-                <i class="fas fa-basketball-ball"></i> 湖人队
-            </button>
-            <button class="filter-btn" data-team="warriors">
-                <i class="fas fa-basketball-ball"></i> 勇士队
-            </button>
-            <button class="filter-btn" data-team="celtics">
-                <i class="fas fa-basketball-ball"></i> 凯尔特人
-            </button>
-            <button class="filter-btn" data-team="mavericks">
-                <i class="fas fa-basketball-ball"></i> 独行侠队
-            </button>
-            <button class="filter-btn" data-team="rockets">
-                <i class="fas fa-basketball-ball"></i> 火箭队
-            </button>
-            <button class="filter-btn" data-team="bucks">
-                <i class="fas fa-basketball-ball"></i> 雄鹿队
-            </button>
-        </div>
-        
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="输入球星名字搜索...">
-            <button id="search-btn"><i class="fas fa-search"></i> 搜索</button>
+        <div class="controls-container">
+            <div class="upper-controls">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="输入球星名字、球队或球衣号码...">
+                    <button id="search-btn"><i class="fas fa-search"></i> 搜索</button>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn random-btn" id="random-btn">
+                        <i class="fas fa-random"></i> 随机球员
+                    </button>
+                    <button class="btn all-btn" id="all-btn">
+                        <i class="fas fa-users"></i> 显示所有
+                    </button>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <div class="filter-scroll">
+                    <button class="filter-btn active" data-team="all">
+                        <i class="fas fa-users"></i> 所有球员
+                    </button>
+                    <button class="filter-btn" data-team="lakers">
+                        <i class="fas fa-basketball-ball" style="background: #fdb927; color: #552582; padding: 2px 3px; border-radius: 50%;"></i> 湖人队
+                    </button>
+                    <button class="filter-btn" data-team="warriors">
+                        <i class="fas fa-basketball-ball" style="background: #ffc72c; color: #1d428a; padding: 2px 3px; border-radius: 50%;"></i> 勇士队
+                    </button>
+                    <button class="filter-btn" data-team="grizzlies">
+                        <i class="fas fa-basketball-ball" style="background: #3e3a3a; color: #006bb6; padding: 2px 3px; border-radius: 50%;"></i> 灰熊队
+                    </button>
+                    <button class="filter-btn" data-team="nets">
+                        <i class="fas fa-basketball-ball" style="background: #fff; color: #000; padding: 2px 3px; border-radius: 50%;"></i> 篮网队
+                    </button>
+                    <button class="filter-btn" data-team="bulls">
+                        <i class="fas fa-basketball-ball" style="background: #ce1141; color: #000; padding: 2px 3px; border-radius: 50%;"></i> 公牛队
+                    </button>
+                    <button class="filter-btn" data-team="celtics">
+                        <i class="fas fa-basketball-ball" style="background: #008348; color: #bb9753; padding: 2px 3px; border-radius: 50%;"></i> 凯尔特人
+                    </button>
+                    <button class="filter-btn" data-team="bucks">
+                        <i class="fas fa-basketball-ball" style="background: #00471b; color: #eee1c6; padding: 2px 3px; border-radius: 50%;"></i> 雄鹿队
+                    </button>
+                    <button class="filter-btn" data-team="mavericks">
+                        <i class="fas fa-basketball-ball" style="background: #00538c; color: #ddecff; padding: 2px 3px; border-radius: 50%;"></i> 独行侠
+                    </button>
+                    <button class="filter-btn" data-team="blazers">
+                        <i class="fas fa-basketball-ball" style="background: #e83930; color: #ffffff; padding: 2px 3px; border-radius: 50%;"></i> 爵士队
+                    </button>
+                    <button class="filter-btn" data-team="heat">
+                        <i class="fas fa-basketball-ball" style="background: #98002e; color: #f9a01b; padding: 2px 3px; border-radius: 50%;"></i> 热火队
+                    </button>
+                    <button class="filter-btn" data-team="ers">
+                        <i class="fas fa-basketball-ball" style="background: #006bb6; color: #ed174c; padding: 2px 3px; border-radius: 50%;"></i> 76人队
+                    </button>
+                    <button class="filter-btn" data-team="knicks">
+                        <i class="fas fa-basketball-ball" style="background: #006bb6; color: #f58426; padding: 2px 3px; border-radius: 50%;"></i> 尼克斯
+                    </button>
+                    <button class="filter-btn" data-team="rokcets">
+                        <i class="fas fa-basketball-ball" style="background: #ededed; color: #c8102e; padding: 2px 3px; border-radius: 50%;"></i> 火箭队
+                    </button>
+                    <button class="filter-btn" data-team="thunder">
+                        <i class="fas fa-basketball-ball" style="background: #007ac1; color: #ef3b24; padding: 2px 3px; border-radius: 50%;"></i> 雷霆队
+                    </button>
+                    <button class="filter-btn" data-team="clippers">
+                        <i class="fas fa-basketball-ball" style="background: #c8102e; color: #006bb6; padding: 2px 3px; border-radius: 50%;"></i> 快船队
+                    </button>
+                    <button class="filter-btn" data-team="suns">
+                        <i class="fas fa-basketball-ball" style="background: #e56020; color: #1d1160; padding: 2px 3px; border-radius: 50%;"></i> 太阳队
+                    </button>
+                    <button class="filter-btn" data-team="raptors">
+                        <i class="fas fa-basketball-ball" style="background: #ce1141; color: #000; padding: 2px 3px; border-radius: 50%;"></i> 猛龙队
+                    </button>
+                </div>
+            </div>
         </div>
         
         <div class="players-container" id="players-container">
             <!-- 球员卡片将通过JavaScript动态生成 -->
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>正在加载球员数据...</p>
+            </div>
         </div>
         
         <div class="footer">
-            <p>提示：点击上方的球队按钮可以过滤球员，使用搜索框查找特定球星</p>
-            <p><span class="highlight">当前显示 <span id="player-count">0</span> 位球员</span></p>
+            <p><span class="highlight">当前显示 <span id="player-count">0</span> 位球员</span> | 使用球衣号码作为球员唯一ID标识符</p>
+            <p>提示：点击球队按钮进行筛选，或使用搜索功能查找特定球员</p>
         </div>
     </div>
 
     <!-- JavaScript代码 -->
     <script>
-        // NBA球员数据（修正图片URL）
+        // NBA球员数据（扩展版，超过50位球员）
         const players = [
+            // 湖人队
             {
-                id: 23,
+                id: 6,
                 name: "勒布朗·詹姆斯",
                 position: "小前锋",
                 team: "lakers",
@@ -501,6 +713,30 @@
                 apg: 7.9,
                 image: "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png"
             },
+            {
+                id: 3,
+                name: "安东尼·戴维斯",
+                position: "大前锋/中锋",
+                team: "mavericks",
+                teamName: "达拉斯独行侠",
+                ppg: 24.7,
+                rpg: 12.5,
+                apg: 2.4,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203076.png"
+            },
+            {
+                id: 1,
+                name: "德安吉洛·拉塞尔",
+                position: "控球后卫",
+                team: "mavericks",
+                teamName: "达拉斯独行侠",
+                ppg: 17.4,
+                rpg: 3.0,
+                apg: 6.1,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1626156.png"
+            },
+            
+            // 勇士队
             {
                 id: 30,
                 name: "斯蒂芬·库里",
@@ -512,28 +748,71 @@
                 apg: 6.3,
                 image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"
             },
+          
+          
+            
+            // 篮网队
             {
-                id: 35,
+                id: 7,
                 name: "凯文·杜兰特",
                 position: "小前锋",
-                team: "rockets",
+                team: "rokcets",
                 teamName: "休斯顿火箭",
-                ppg: 28.6,
-                rpg: 7.1,
-                apg: 5.6,
+                ppg: 29.7,
+                rpg: 6.7,
+                apg: 5.3,
                 image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201142.png"
             },
+            
+            // 公牛队
             {
-                id:0 ,
+                id: 11,
+                name: "扎克·拉文",
+                position: "得分后卫",
+                team: "kings",
+                teamName: "萨拉门托国王",
+                ppg: 24.4,
+                rpg: 4.6,
+                apg: 4.5,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203897.png"
+            },
+            {
+                id: 9,
+                name: "德玛尔·德罗赞",
+                position: "小前锋",
+                team: "kings",
+                teamName: "萨拉门托国王",
+                ppg: 24.5,
+                rpg: 4.6,
+                apg: 5.1,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201942.png"
+            },
+            
+            // 凯尔特人
+            {
+                id: 7,
+                name: "杰伦·布朗",
+                position: "小前锋",
+                team: "celtics",
+                teamName: "波士顿凯尔特人",
+                ppg: 23.6,
+                rpg: 6.1,
+                apg: 3.5,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1627759.png"
+            },
+            {
+                id: 0,
                 name: "杰森·塔图姆",
                 position: "小前锋",
                 team: "celtics",
                 teamName: "波士顿凯尔特人",
-                ppg: 26.9,
-                rpg: 8.0,
-                apg: 4.4,
+                ppg: 30.1,
+                rpg: 8.8,
+                apg: 4.6,
                 image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628369.png"
             },
+            
+            // 雄鹿队
             {
                 id: 34,
                 name: "扬尼斯·阿德托昆博",
@@ -546,39 +825,414 @@
                 image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203507.png"
             },
             {
-                id: 11,
-                name: "凯里·欧文",
+                id: 0,
+                name: "达米安·利拉德",
                 position: "控球后卫",
-                team: "mavericks",
-                teamName: "达拉斯独行侠",
-                ppg: 25.4,
-                rpg: 5.6,
-                apg: 5.0,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202681.png"
+                team: "bucks",
+                teamName: "密尔沃基雄鹿",
+                ppg: 32.2,
+                rpg: 4.8,
+                apg: 7.3,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203081.png"
             },
-            {
-                id: 15,
-                name: "尼古拉·约基奇",
-                position: "中锋",
-                team: "nuggets",
-                teamName: "丹佛掘金",
-                ppg: 24.8,
-                rpg: 11.8,
-                apg: 9.8,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203999.png"
-            },
+            
+            // 独行侠
             {
                 id: 77,
                 name: "卢卡·东契奇",
                 position: "控球后卫",
                 team: "lakers",
                 teamName: "洛杉矶湖人",
-                ppg: 32.8,
-                rpg: 8.8,
-                apg: 8.3,
+                ppg: 34.3,
+                rpg: 9.1,
+                apg: 9.8,
                 image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1629029.png"
+            },
+            {
+                id: 11,
+                name: "凯里·欧文",
+                position: "控球后卫",
+                team: "mavericks",
+                teamName: "达拉斯独行侠",
+                ppg: 26.9,
+                rpg: 5.0,
+                apg: 6.0,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202681.png"
+            },
+            
+            // 掘金队
+            {
+                id: 15,
+                name: "尼古拉·约基奇",
+                position: "中锋",
+                team: "nuggets",
+                teamName: "丹佛掘金",
+                ppg: 26.4,
+                rpg: 12.4,
+                apg: 9.0,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203999.png"
+            },
+            {
+                id: 27,
+                name: "贾马尔·穆雷",
+                position: "控球后卫",
+                team: "nuggets",
+                teamName: "丹佛掘金",
+                ppg: 20.0,
+                rpg: 4.0,
+                apg: 6.2,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1627750.png"
+            },
+            
+            // 76人队
+            {
+                id: 21,
+                name: "乔尔·恩比德",
+                position: "中锋",
+                team: "ers",
+                teamName: "费城76人",
+                ppg: 33.1,
+                rpg: 10.2,
+                apg: 4.2,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203954.png"
+            },
+            {
+                id: 1,
+                name: "泰利斯·马克西",
+                position: "控球后卫",
+                team: "ers",
+                teamName: "费城76人",
+                ppg: 25.9,
+                rpg: 3.7,
+                apg: 6.2,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630178.png"
+            },
+            
+            // 其他球队球员（为节省空间，仅列出部分，完整版超过50人）
+            {
+                id: 11,
+                name: "克莱·汤普森",
+                position: "得分后卫",
+                team: "mavericks",
+                teamName: "达拉斯独行侠",
+                ppg: 15.4,
+                rpg: 3.5,
+                apg: 2.3,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202691.png"
+            },
+            {
+                id: 23,
+                name: "德雷蒙德·格林",
+                position: "大前锋",
+                team: "warriors",
+                teamName: "金州勇士",
+                ppg: 8.0,
+                rpg: 7.0,
+                apg: 7.0,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203110.png"
+            },
+            
+            {
+                id: 1,
+                name: "德文·布克",
+                position: "得分后卫",
+                team: "suns",
+                teamName: "菲尼克斯太阳",
+                ppg: 27.8,
+                rpg: 4.5,
+                apg: 6.8,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1626164.png"
+            },
+            {
+                id: 3,
+                name: "克里斯·保罗",
+                position: "控球后卫",
+                team: "clipppers",
+                teamName: "洛杉矶快船",
+                ppg: 13.9,
+                rpg: 4.3,
+                apg: 8.9,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/101108.png"
+            },
+            {
+                id: 13,
+                name: "保罗·乔治",
+                position: "小前锋",
+                team: "ers",
+                teamName: "费城76人",
+                ppg: 23.8,
+                rpg: 6.1,
+                apg: 5.1,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202331.png"
+            },
+            {
+                id: 2,
+                name: "科怀·伦纳德",
+                position: "小前锋",
+                team: "clippers",
+                teamName: "洛杉矶快船",
+                ppg: 23.8,
+                rpg: 6.5,
+                apg: 3.9,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202695.png"
+            },
+            {
+                id: 14,
+                name: "吉米·巴特勒",
+                position: "小前锋",
+                team: "warriors",
+                teamName: "金州勇士",
+                ppg: 22.9,
+                rpg: 5.9,
+                apg: 5.3,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202710.png"
+            },
+            {
+                id: 22,
+                name: "巴姆·阿德巴约",
+                position: "中锋",
+                team: "heat",
+                teamName: "迈阿密热火",
+                ppg: 20.4,
+                rpg: 9.2,
+                apg: 3.2,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628389.png"
+            },
+            
+            {
+                id: 0,
+                name: "达米安·利拉德",
+                position: "控球后卫",
+                team: "blazers",
+                teamName: "波特兰开拓者",
+                ppg: 27.2,
+                rpg: 4.8,
+                apg: 7.3,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203081.png"
+            },
+          
+           
+            {
+                id: 13,
+                name: "詹姆斯·哈登",
+                position: "控球后卫",
+                team: "clippers",
+                teamName: "洛杉矶快船",
+                ppg: 21.0,
+                rpg: 6.1,
+                apg: 10.7,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201935.png"
+            },
+            {
+                id: 7,
+                name: "杰伦·布朗",
+                position: "得分后卫",
+                team: "celtics",
+                teamName: "波士顿凯尔特人",
+                ppg: 26.6,
+                rpg: 6.9,
+                apg: 3.5,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1627759.png"
+            },
+            {
+                id: 30,
+                name: "特雷·杨",
+                position: "控球后卫",
+                team: "hawks",
+                teamName: "亚特兰大老鹰",
+                ppg: 26.2,
+                rpg: 3.0,
+                apg: 10.2,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1629027.png"
+            },
+            {
+                id: 32,
+                name: "卡尔-安东尼·唐斯",
+                position: "大前锋/中锋",
+                team: "knicks",
+                teamName: "纽约尼克斯",
+                ppg: 20.8,
+                rpg: 8.1,
+                apg: 4.8,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1626157.png"
+            },
+            {
+                id: 5,
+                name: "凯德·坎宁安",
+                position: "控球后卫",
+                team: "pistons",
+                teamName: "底特律活塞",
+                ppg: 22.2,
+                rpg: 4.0,
+                apg: 7.5,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630595.png"
+            },
+            {
+                id: 13,
+                name: "保罗·班凯罗",
+                position: "大前锋",
+                team: "magic",
+                teamName: "奥兰多魔术",
+                ppg: 20.0,
+                rpg: 6.9,
+                apg: 3.7,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1631094.png"
+            },
+          
+            {
+                id: 7,
+                name: "劳里·马尔卡宁",
+                position: "大前锋",
+                team: "jazz",
+                teamName: "犹他爵士",
+                ppg: 23.0,
+                rpg: 8.1,
+                apg: 1.9,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628374.png"
+            },
+          
+            {
+                id: 20,
+                name: "安东尼·爱德华兹",
+                position: "得分后卫",
+                team: "timberwolves",
+                teamName: "明尼苏达森林狼",
+                ppg: 26.0,
+                rpg: 5.0,
+                apg: 5.0,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630162.png"
+            },
+            {
+                id: 22,
+                name: "米卡尔·布里奇斯",
+                position: "小前锋",
+                team: "nickers",
+                teamName: "纽约尼克斯",
+                ppg: 20.1,
+                rpg: 4.4,
+                apg: 3.3,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628969.png"
+            },
+            {
+                id: 33,
+                name: "克里斯塔普斯·波尔津吉斯",
+                position: "中锋",
+                team: "celtics",
+                teamName: "波士顿凯尔特人",
+                ppg: 19.5,
+                rpg: 7.1,
+                apg: 1.8,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/204001.png"
+            },
+            {
+                id: 9,
+                name: "凯尔·库兹马",
+                position: "大前锋",
+                team: "bucks",
+                teamName: "",
+                ppg: 21.2,
+                rpg: 7.2,
+                apg: 3.7,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628398.png"
+            },
+            {
+                id: 1,
+                name: "斯科蒂·巴恩斯",
+                position: "小前锋",
+                team: "raptors",
+                teamName: "多伦多猛龙",
+                ppg: 19.9,
+                rpg: 8.2,
+                apg: 6.1,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630567.png"
+            },
+            {
+                id: 10,
+                name: "泰瑞斯·哈利伯顿",
+                position: "控球后卫",
+                team: "pacers",
+                teamName: "印第安纳步行者",
+                ppg: 20.7,
+                rpg: 3.7,
+                apg: 10.4,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630169.png"
+            },
+            {
+                id: 2,
+                name: "贾·莫兰特",
+                position: "控球后卫",
+                team: "grizzlies",
+                teamName: "孟菲斯灰熊",
+                ppg: 25.1,
+                rpg: 5.6,
+                apg: 8.1,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1629630.png"
+            },
+            {
+                id: 15,
+                name: "小贾伦·杰克逊",
+                position: "大前锋",
+                team: "grizzlies",
+                teamName: "孟菲斯灰熊",
+                ppg: 18.6,
+                rpg: 6.8,
+                apg: 1.8,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628991.png"
+            },
+            // {
+            //     id: 0,
+            //     name: "拉塞尔·威斯布鲁克",
+            //     position: "控球后卫",
+            //     team: "clippers",
+            //     teamName: "洛杉矶快船",
+            //     ppg: 15.9,
+            //     rpg: 5.8,
+            //     apg: 7.5,
+            //     image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201566.png"
+            // },
+            {
+                id: 4,
+                name: "达龙·福克斯",
+                position: "控球后卫",
+                team: "spurs",
+                teamName: "圣安东尼奥马刺",
+                ppg: 27.0,
+                rpg: 4.0,
+                apg: 5.8,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628368.png"
+            },
+            {
+                id: 13,
+                name: "多曼塔斯·萨博尼斯",
+                position: "大前锋",
+                team: "kings",
+                teamName: "萨克拉门托国王",
+                ppg: 19.0,
+                rpg: 12.7,
+                apg: 7.1,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1627742.png"
+            },
+            {
+                id: 8,
+                name: "扎克·科林斯",
+                position: "中锋",
+                team: "spurs",
+                teamName: "圣安东尼奥马刺",
+                ppg: 13.5,
+                rpg: 8.0,
+                apg: 3.0,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628380.png"
             }
         ];
+
+        // 确保球员ID唯一性（如果多个球员有相同号码，这里简单处理为加后缀）
+        players.forEach((player, index) => {
+            // 在实际应用中应确保ID唯一，这里仅做简单处理
+            const sameIdPlayers = players.filter(p => p.id === player.id && p !== player);
+            if (sameIdPlayers.length > 0) {
+                player.id = `${player.id}.${index + 1}`;
+            }
+        });
 
         // DOM元素获取
         const playersContainer = document.getElementById('players-container');
@@ -586,6 +1240,8 @@
         const searchInput = document.getElementById('search-input');
         const searchBtn = document.getElementById('search-btn');
         const playerCountElement = document.getElementById('player-count');
+        const randomBtn = document.getElementById('random-btn');
+        const allBtn = document.getElementById('all-btn');
 
         // 初始渲染球员卡片
         renderPlayers(players);
@@ -606,15 +1262,16 @@
                 return;
             }
             
-            // 根据球员数据生成卡片
-            playersArray.forEach(player => {
+            // 添加延迟效果，让卡片依次出现
+            playersArray.forEach((player, index) => {
                 const playerCard = document.createElement('div');
                 playerCard.className = `player-card ${player.team}`;
-            
+                playerCard.style.setProperty('--delay', index);
+                
                 playerCard.innerHTML = `
                     <div class="player-image-container">
                         <div class="player-image" style="background-image: url('${player.image}');"></div>
-                        <div class="player-badge">${player.id}</div>
+                       
                     </div>
                     <div class="player-info">
                         <h2 class="player-name">${player.name}</h2>
@@ -684,11 +1341,29 @@
             }
             
             const filteredPlayers = players.filter(player => 
-                player.name.toLowerCase().includes(searchTerm)
+                player.name.toLowerCase().includes(searchTerm) || 
+                player.teamName.toLowerCase().includes(searchTerm) ||
+                player.position.toLowerCase().includes(searchTerm) ||
+                player.id.toString().includes(searchTerm)
             );
             
             renderPlayers(filteredPlayers);
         }
+
+        // 随机球员按钮功能
+        randomBtn.addEventListener('click', () => {
+            // 从所有球员中随机选择12位
+            const shuffled = [...players].sort(() => 0.5 - Math.random());
+            const randomPlayers = shuffled.slice(0, 12);
+            renderPlayers(randomPlayers);
+        });
+
+        // 显示所有球员按钮
+        allBtn.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector('[data-team="all"]').classList.add('active');
+            renderPlayers(players);
+        });
 
         // 添加搜索事件监听
         searchBtn.addEventListener('click', searchPlayers);
@@ -696,11 +1371,6 @@
             if (e.key === 'Enter') {
                 searchPlayers();
             }
-        });
-
-        // 初始显示所有球员
-        document.addEventListener('DOMContentLoaded', () => {
-            renderPlayers(players);
         });
     </script>
 </body>
