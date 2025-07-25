@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA球星展示</title>
+    <!-- 引入外部CSS文件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS重置和全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(10, 46, 56, 0.9), rgba(26, 26, 46, 0.9)), 
+                         url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* 添加半透明覆盖层，提高文字可读性 */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 头部样式 */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        header::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(to right, #00bcf2, #ff4d00);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 188, 242, 0.7);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #00bcf2;
+        }
+
+        /* 控制按钮样式 */
+        .controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn:hover {
+            background: rgba(0, 188, 242, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .filter-btn.active {
+            background: #00bcf2;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 188, 242, 0.4);
+        }
+
+        /* 搜索框样式 */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 14px 22px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 17px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        #search-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 0 0 2px #00bcf2;
+        }
+
+        #search-btn {
+            padding: 14px 25px;
+            background: linear-gradient(to right, #00bcf2, #0099c7);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 17px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        #search-btn:hover {
+            background: linear-gradient(to right, #00a5d9, #0087b0);
+            box-shadow: 0 6px 15px rgba(0, 188, 242, 0.4);
+        }
+
+        /* 球员卡片容器样式 */
+        .players-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* 空状态提示 */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .empty-state i {
+            font-size: 64px;
+            color: #00bcf2;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #00bcf2;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 球员卡片样式 */
+        .player-card {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .player-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(0, 188, 242, 0.3);
+        }
+
+        .player-image-container {
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: top center;
+            transition: transform 0.5s ease;
+        }
+
+        .player-card:hover .player-image {
+            transform: scale(1.05);
+        }
+
+        .player-info {
+            padding: 25px;
+        }
+
+        .player-name {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .player-name::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #00bcf2;
+            border-radius: 3px;
+        }
+
+        .player-position {
+            font-size: 1.1rem;
+            color: #bbb;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .player-team {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+
+        .team-logo {
+            width: 36px;
+            height: 36px;
+            margin-right: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 18px;
+        }
+
+        .player-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat {
+            text-align: center;
+            background: rgba(0, 188, 242, 0.12);
+            padding: 12px 10px;
+            border-radius: 8px;
+            flex: 1;
+            transition: all 0.3s;
+        }
+
+        .player-card:hover .stat {
+            background: rgba(0, 188, 242, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00bcf2;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #bbb;
+            font-weight: 500;
+        }
+
+        /* 球员编号徽章 */
+        .player-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 12px;
+        }
+
+        .highlight {
+            color: #00bcf2;
+            font-weight: 600;
+        }
+
+        /* 球队颜色 */
+        .lakers .team-logo { background: linear-gradient(145deg, #552582, #fdb927); }
+        .warriors .team-logo { background: linear-gradient(145deg, #1d428a, #ffc72c); }
+        .rockets .team-logo { background: linear-gradient(145deg, #ce1141, #c4ced4); }
+        .celtics .team-logo { background: linear-gradient(145deg, #008348, #bb9753); }
+        .bucks .team-logo { background: linear-gradient(145deg, #00471b, #eee1c6); }
+        .mavericks .team-logo { background: linear-gradient(145deg, #00538c, #b0caeb); }
+        .nuggets .team-logo { background: linear-gradient(145deg, #002d62, #c7ddef); }
+        
+        .lakers .player-image-container { background: linear-gradient(45deg, #552582, #fdb927); }
+        .warriors .player-image-container { background: linear-gradient(45deg, #1d428a, #ffc72c); }
+        .rockets .player-image-container { background: linear-gradient(45deg, #ce1141, #ffffff); }
+        .celtics .player-image-container { background: linear-gradient(45deg, #008348, #bb9753); }
+        .bucks .player-image-container { background: linear-gradient(45deg, #00471b, #eee1c6); }
+        .mavericks .player-image-container { background: linear-gradient(45deg, #00538c, #ddecff); }
+        .nuggets .player-image-container { background: linear-gradient(45deg, #002d62, #c7ddef); }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .players-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.7rem;
+            }
+            
+            .search-container {
+                padding: 0 20px;
+            }
+            
+            .filter-btn {
+                padding: 10px 18px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .player-image-container {
+                height: 240px;
+            }
+            
+            .players-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer {
+                font-size: 14px;
+                padding: 20px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+            
+            .player-image-container {
+                height: 220px;
+            }
+            
+            .player-badge {
+                top: 15px;
+                right: 15px;
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-basketball-ball"></i> NBA球星展示</h1>
+            <p class="subtitle">探索NBA顶级球员数据和信息</p>
+        </header>
+        
+        <div class="controls">
+            <button class="filter-btn active" data-team="all">
+                <i class="fas fa-users"></i> 所有球员
+            </button>
+            <button class="filter-btn" data-team="lakers">
+                <i class="fas fa-basketball-ball"></i> 湖人队
+            </button>
+            <button class="filter-btn" data-team="warriors">
+                <i class="fas fa-basketball-ball"></i> 勇士队
+            </button>
+            <button class="filter-btn" data-team="celtics">
+                <i class="fas fa-basketball-ball"></i> 凯尔特人
+            </button>
+            <button class="filter-btn" data-team="mavericks">
+                <i class="fas fa-basketball-ball"></i> 独行侠队
+            </button>
+            <button class="filter-btn" data-team="rockets">
+                <i class="fas fa-basketball-ball"></i> 火箭队
+            </button>
+            <button class="filter-btn" data-team="bucks">
+                <i class="fas fa-basketball-ball"></i> 雄鹿队
+            </button>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="输入球星名字搜索...">
+            <button id="search-btn"><i class="fas fa-search"></i> 搜索</button>
+        </div>
+        
+        <div class="players-container" id="players-container">
+            <!-- 球员卡片将通过JavaScript动态生成 -->
+        </div>
+        
+        <div class="footer">
+            <p>提示：点击上方的球队按钮可以过滤球员，使用搜索框查找特定球星</p>
+            <p><span class="highlight">当前显示 <span id="player-count">0</span> 位球员</span></p>
+        </div>
+    </div>
+
+    <!-- JavaScript代码 -->
+    <script>
+        // NBA球员数据（修正图片URL）
+        const players = [
+            {
+                id: 23,
+                name: "勒布朗·詹姆斯",
+                position: "小前锋",
+                team: "lakers",
+                teamName: "洛杉矶湖人",
+                ppg: 25.4,
+                rpg: 7.9,
+                apg: 7.9,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png"
+            },
+            {
+                id: 30,
+                name: "斯蒂芬·库里",
+                position: "控球后卫",
+                team: "warriors",
+                teamName: "金州勇士",
+                ppg: 29.4,
+                rpg: 5.5,
+                apg: 6.3,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"
+            },
+            {
+                id: 35,
+                name: "凯文·杜兰特",
+                position: "小前锋",
+                team: "rockets",
+                teamName: "休斯顿火箭",
+                ppg: 28.6,
+                rpg: 7.1,
+                apg: 5.6,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201142.png"
+            },
+            {
+                id:0 ,
+                name: "杰森·塔图姆",
+                position: "小前锋",
+                team: "celtics",
+                teamName: "波士顿凯尔特人",
+                ppg: 26.9,
+                rpg: 8.0,
+                apg: 4.4,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628369.png"
+            },
+            {
+                id: 34,
+                name: "扬尼斯·阿德托昆博",
+                position: "大前锋",
+                team: "bucks",
+                teamName: "密尔沃基雄鹿",
+                ppg: 31.1,
+                rpg: 11.8,
+                apg: 5.7,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203507.png"
+            },
+            {
+                id: 11,
+                name: "凯里·欧文",
+                position: "控球后卫",
+                team: "mavericks",
+                teamName: "达拉斯独行侠",
+                ppg: 25.4,
+                rpg: 5.6,
+                apg: 5.0,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202681.png"
+            },
+            {
+                id: 15,
+                name: "尼古拉·约基奇",
+                position: "中锋",
+                team: "nuggets",
+                teamName: "丹佛掘金",
+                ppg: 24.8,
+                rpg: 11.8,
+                apg: 9.8,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203999.png"
+            },
+            {
+                id: 77,
+                name: "卢卡·东契奇",
+                position: "控球后卫",
+                team: "lakers",
+                teamName: "洛杉矶湖人",
+                ppg: 32.8,
+                rpg: 8.8,
+                apg: 8.3,
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1629029.png"
+            }
+        ];
+
+        // DOM元素获取
+        const playersContainer = document.getElementById('players-container');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        const playerCountElement = document.getElementById('player-count');
+
+        // 初始渲染球员卡片
+        renderPlayers(players);
+
+        // 渲染球员卡片函数
+        function renderPlayers(playersArray) {
+            playersContainer.innerHTML = '';
+            
+            if (playersArray.length === 0) {
+                playersContainer.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <h3>未找到匹配的球员</h3>
+                        <p>请尝试其他搜索关键词或选择不同的球队筛选条件</p>
+                    </div>
+                `;
+                playerCountElement.textContent = '0';
+                return;
+            }
+            
+            // 根据球员数据生成卡片
+            playersArray.forEach(player => {
+                const playerCard = document.createElement('div');
+                playerCard.className = `player-card ${player.team}`;
+            
+                playerCard.innerHTML = `
+                    <div class="player-image-container">
+                        <div class="player-image" style="background-image: url('${player.image}');"></div>
+                        <div class="player-badge">${player.id}</div>
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">${player.name}</h2>
+                        <div class="player-position">位置：${player.position}</div>
+                        <div class="player-team">
+                            <div class="team-logo">${player.teamName.substring(0,1)}</div>
+                            ${player.teamName}
+                        </div>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">${player.ppg}</div>
+                                <div class="stat-label">场均得分</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">${player.rpg}</div>
+                                <div class="stat-label">场均篮板</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">${player.apg}</div>
+                                <div class="stat-label">场均助攻</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                playersContainer.appendChild(playerCard);
+            });
+            
+            playerCountElement.textContent = playersArray.length;
+        }
+
+        // 球队过滤功能
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 更新按钮状态
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const team = button.dataset.team;
+                
+                if (team === 'all') {
+                    renderPlayers(players);
+                } else {
+                    const filteredPlayers = players.filter(player => player.team === team);
+                    renderPlayers(filteredPlayers);
+                }
+            });
+        });
+
+        // 搜索功能
+        function searchPlayers() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                // 重置为当前筛选状态
+                const activeButton = document.querySelector('.filter-btn.active');
+                const team = activeButton.dataset.team;
+                
+                if (team === 'all') {
+                    renderPlayers(players);
+                } else {
+                    const filteredPlayers = players.filter(player => player.team === team);
+                    renderPlayers(filteredPlayers);
+                }
+                
+                return;
+            }
+            
+            const filteredPlayers = players.filter(player => 
+                player.name.toLowerCase().includes(searchTerm)
+            );
+            
+            renderPlayers(filteredPlayers);
+        }
+
+        // 添加搜索事件监听
+        searchBtn.addEventListener('click', searchPlayers);
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                searchPlayers();
+            }
+        });
+
+        // 初始显示所有球员
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPlayers(players);
+        });
+    </script>
+</body>
+</html>
