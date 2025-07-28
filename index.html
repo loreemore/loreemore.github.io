@@ -318,14 +318,14 @@
         }
 
         .player-image-container {
-            height: 290px;
+            height: 190px;
             position: relative;
             overflow: hidden;
         }
 
         .player-image {
-            width: 100%;
-            height: 100%;
+            width: 260px;
+            height: 190px;
             background-size: cover;
             background-position: top center;
             transition: transform 0.5s ease;
@@ -473,9 +473,17 @@
         .wizards { --team-color: linear-gradient(45deg, #002b5c, #e31837); }
         .pistons { --team-color: linear-gradient(45deg, #006bb6, #c8102e); }
         .pacers { --team-color: linear-gradient(45deg, #002d62, #fdbb30); }
-        .rokcets { --team-color: linear-gradient(45deg, #ededed, #c8102e); }
+        .rockets { --team-color: linear-gradient(45deg, #ededed, #c8102e); }
         .blazers { --team-color: linear-gradient(45deg, #e83930, #ffffff); }
         .grizzlies { --team-color: linear-gradient(45deg, #006bb6, #3e3a3a); }
+        .Cavaliers { --team-color: linear-gradient(45deg, #b1721f, #edf167); }
+        .hawks { --team-color: linear-gradient(45deg, #e83930, #ffffff); }
+        .pelicans { --team-color: linear-gradient(45deg, #0c2340, #c8102e); }    /* 鹈鹕[3,9](@ref) */
+        .magic { --team-color: linear-gradient(45deg, #0077c0, #c4ced4); }        /* 魔术[6](@ref) */
+        .spurs { --team-color: linear-gradient(45deg, #000, #c4ced4); }           /* 马刺[1,7](@ref) */
+        .hornets { --team-color: linear-gradient(45deg, #1d1160, #00788c); }      /* 黄蜂[6,9](@ref) */
+        .jazz { --team-color: linear-gradient(45deg, #002b5c, #f9a01b); }         /* 爵士[2](@ref) */
+        .timberwolves { --team-color: linear-gradient(45deg, #0c2340, #236192); } /* 森林狼[2](@ref) */
         
         .lakers .player-image-container { background: linear-gradient(45deg, #552582, #fdb927); }
         .warriors .player-image-container { background: linear-gradient(45deg, #1d428a, #ffc72c); }
@@ -496,9 +504,17 @@
         .wizards .player-image-container { background: linear-gradient(45deg, #002b5c, #e31837); }
         .pistons .player-image-container { background: linear-gradient(45deg, #006bb6, #c8102e); }
         .pacers .player-image-container { background: linear-gradient(45deg, #002d62, #fdbb30); }
-        .rokcets .player-image-container { background: linear-gradient(45deg, #ededed, #c8102e); }
+        .rockets.player-image-container { background: linear-gradient(45deg, #ededed, #c8102e); }
         .blazers .player-image-container { background: linear-gradient(45deg, #e83930, #ffffff); }
         .grizzlies .player-image-container { background: linear-gradient(45deg, #006bb6, #3e3a3a); }
+        .Cavaliers .player-image-container { background: linear-gradient(45deg, #b1721f, #edf167); }
+        .hawks .player-image-container { background: linear-gradient(45deg, #e83930, #ffffff); }
+        .pelicans .player-image-container { background: linear-gradient(45deg, #0c2340, #c8102e); }
+        .magic .player-image-container { background: linear-gradient(45deg, #0077c0, #c4ced4); }
+        .spurs .player-image-container { background: linear-gradient(45deg, #000000, #c4ced4); }
+        .hornets .player-image-container { background: linear-gradient(45deg, #1d1160, #00788c); }
+        .jazz .player-image-container { background: linear-gradient(45deg, #002b5c, #f9a01b); }
+        .timberwolves .player-image-container { background: linear-gradient(45deg, #0c2340, #236192); }
 
         .lakers .team-logo { background: var(--team-color); }
         .warriors .team-logo { background: var(--team-color); }
@@ -519,9 +535,17 @@
         .wizards .team-logo { background: var(--team-color); }
         .pistons .team-logo { background: var(--team-color); }
         .pacers .team-logo { background: var(--team-color); }
-        .rokcets .team-logo { background: var(--team-color); }
+        .rockets .team-logo { background: var(--team-color); }
         .blazers .team-logo { background: var(--team-color); }
         .grizzlies .team-logo { background: var(--team-color); }
+        .Cavaliers .team-logo { background: var(--team-color); }
+        .hawks .team-logo { background: var(--team-color); }
+        .pelicans .team-logo { background: var(--team-color); }
+        .magic .team-logo { background: var(--team-color); }
+        .spurs .team-logo { background: var(--team-color); }
+        .hornets .team-logo { background: var(--team-color); }
+        .jazz .team-logo { background: var(--team-color); }
+        .timberwolves .team-logo { background: var(--team-color); }
         /* 加载动画 */
         .loading {
             text-align: center;
@@ -564,7 +588,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 8px) {
             h1 {
                 font-size: 3rem;
             }
@@ -602,14 +626,14 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-basketball-ball"></i> NBA 球星展示平台</h1>
-            <p class="subtitle">探索NBA顶级球员数据、统计信息和精彩表现，使用球衣号码作为唯一标识符</p>
+            <h1><i class="fas fa-basketball-ball"></i> NBA 球员大全</h1>
+            <p class="subtitle">NBA球员集合</p>
         </header>
         
         <div class="controls-container">
             <div class="upper-controls">
                 <div class="search-container">
-                    <input type="text" id="search-input" placeholder="输入球星名字、球队或球衣号码...">
+                    <input type="text" id="search-input" placeholder="输入球星名字或球队...">
                     <button id="search-btn"><i class="fas fa-search"></i> 搜索</button>
                 </div>
                 
@@ -627,6 +651,12 @@
                 <div class="filter-scroll">
                     <button class="filter-btn active" data-team="all">
                         <i class="fas fa-users"></i> 所有球员
+                    </button>
+                    <button class="filter-btn" data-team="hawks">
+                        <i class="fas fa-basketball-ball" style="background: #e83930; color: #ffffff; padding: 2px 3px; border-radius: 50%;"></i> 老鹰队
+                    </button>
+                    <button class="filter-btn" data-team="Cavaliers">
+                        <i class="fas fa-basketball-ball" style="background: #72362a; color: #d4ae4c; padding: 2px 3px; border-radius: 50%;"></i> 骑士队
                     </button>
                     <button class="filter-btn" data-team="lakers">
                         <i class="fas fa-basketball-ball" style="background: #fdb927; color: #552582; padding: 2px 3px; border-radius: 50%;"></i> 湖人队
@@ -664,9 +694,6 @@
                     <button class="filter-btn" data-team="knicks">
                         <i class="fas fa-basketball-ball" style="background: #006bb6; color: #f58426; padding: 2px 3px; border-radius: 50%;"></i> 尼克斯
                     </button>
-                    <button class="filter-btn" data-team="rokcets">
-                        <i class="fas fa-basketball-ball" style="background: #ededed; color: #c8102e; padding: 2px 3px; border-radius: 50%;"></i> 火箭队
-                    </button>
                     <button class="filter-btn" data-team="thunder">
                         <i class="fas fa-basketball-ball" style="background: #007ac1; color: #ef3b24; padding: 2px 3px; border-radius: 50%;"></i> 雷霆队
                     </button>
@@ -679,6 +706,43 @@
                     <button class="filter-btn" data-team="raptors">
                         <i class="fas fa-basketball-ball" style="background: #ce1141; color: #000; padding: 2px 3px; border-radius: 50%;"></i> 猛龙队
                     </button>
+                    <button class="filter-btn" data-team="wizards">
+                        <i class="fas fa-basketball-ball" style="background: #002b5c; color: #e31837; padding: 2px 3px; border-radius: 50%;"></i> 奇才队
+                    </button>
+                    <button class="filter-btn" data-team="pacers">
+                        <i class="fas fa-basketball-ball" style="background: #002d62; color: #fdbb30; padding: 2px 3px; border-radius: 50%;"></i> 步行者队
+                    </button>
+                    <button class="filter-btn" data-team="rockets">
+                        <i class="fas fa-basketball-ball" style="background: #ededed; color: #c8102e; padding: 2px 3px; border-radius: 50%;"></i> 火箭队
+                    </button>
+                    <button class="filter-btn" data-team="magic">
+                        <i class="fas fa-basketball-ball" style="background: #0077c0; color: #c4ced4; padding: 2px 3px; border-radius: 50%;"></i> 魔术队
+                    </button>
+                    <button class="filter-btn" data-team="spurs">
+                        <i class="fas fa-basketball-ball" style="background: #000000; color: #c4ced4; padding: 2px 3px; border-radius: 50%;"></i> 马刺队
+                    </button>
+                    <button class="filter-btn" data-team="hornets">
+                        <i class="fas fa-basketball-ball" style="background: #1d1160; color: #00788c; padding: 2px 3px; border-radius: 50%;"></i> 黄蜂队
+                    </button>
+                    <button class="filter-btn" data-team="jazz">
+                        <i class="fas fa-basketball-ball" style="background: #002b5c; color: #f9a01b; padding: 2px 3px; border-radius: 50%;"></i> 爵士队
+                    </button>
+                    <button class="filter-btn" data-team="timberwolves">
+                        <i class="fas fa-basketball-ball" style="background: #006bb6; color: #e2dedf; padding: 2px 3px; border-radius: 50%;"></i> 森林狼队
+                    </button>
+                    <button class="filter-btn" data-team="nuggets">
+            <i class="fas fa-basketball-ball" style="background: #002d62; color: #c7ddef; padding: 2px 3px; border-radius: 50%;"></i> 掘金队
+        </button>
+        <button class="filter-btn" data-team="pelicans">
+            <i class="fas fa-basketball-ball" style="background: #0c2340; color: #c8102e; padding: 2px 3px; border-radius: 50%;"></i> 鹈鹕队
+        </button>
+        <button class="filter-btn" data-team="kings">
+            <i class="fas fa-basketball-ball" style="background: #5a2d81; color: #63727a; padding: 2px 3px; border-radius: 50%;"></i> 国王队
+        </button>
+        <!-- 修正原重复的猛龙队为活塞队 -->
+        <button class="filter-btn" data-team="pistons">
+            <i class="fas fa-basketball-ball" style="background: #006bb6; color: #c8102e; padding: 2px 3px; border-radius: 50%;"></i> 活塞队
+        </button>
                 </div>
             </div>
         </div>
@@ -692,7 +756,7 @@
         </div>
         
         <div class="footer">
-            <p><span class="highlight">当前显示 <span id="player-count">0</span> 位球员</span> | 使用球衣号码作为球员唯一ID标识符</p>
+            <p><span class="highlight">当前显示 <span id="player-count">0</span> 位球员</span> </p>
             <p>提示：点击球队按钮进行筛选，或使用搜索功能查找特定球员</p>
         </div>
     </div>
@@ -701,528 +765,4711 @@
     <script>
         // NBA球员数据（扩展版，超过50位球员）
         const players = [
+            {
+        "id": 24,
+        "name": "普罗克特",
+        "position": "后卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202506/27/944c8c7b.png"
+    },
+    {
+        "id": 7,
+        "name": "尼昂",
+        "position": "后卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202507/24/49423091.png"
+    },
+    {
+        "id": 2,
+        "name": "鲍尔",
+        "position": "控卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202507/16/8f651fba.png"
+    },
+    {
+        "id": 22,
+        "name": "南斯",
+        "position": "大前锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202507/16/ae638ccd.png"
+    },
+    {
+        "id": 18,
+        "name": "奥基基",
+        "position": "大前锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202504/12/9bf7e982.png"
+    },
+    {
+        "id": 24,
+        "name": "泰森",
+        "position": "前锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/13/bddd90de.png"
+    },
+    {
+        "id": 8,
+        "name": "格林",
+        "position": "后卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202503/02/44345dbb.png"
+    },
+    {
+        "id": 30,
+        "name": "汤姆林",
+        "position": "前锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202503/02/60c0341b.png"
+    },
+    {
+        "id": 12,
+        "name": "亨特",
+        "position": "小前锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202505/14/c67b5384.png"
+    },
+    {
+        "id": 33,
+        "name": "特拉弗斯",
+        "position": "后卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202411/09/146f4ea9.png"
+    },
+    {
+        "id": 13,
+        "name": "汤普森",
+        "position": "中锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/09/2ffefda7.png"
+    },
+    {
+        "id": 9,
+        "name": "波特",
+        "position": "后卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/10/38b0b3.png"
+    },
+    {
+        "id": 5,
+        "name": "梅里尔",
+        "position": "分卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/10/107850e2.png"
+    },
+    {
+        "id": 1,
+        "name": "斯特鲁斯",
+        "position": "分卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202501/14/e7a601a7.png"
+    },
+    {
+        "id": 21,
+        "name": "贝茨",
+        "position": "前锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/10/55efb8b6.png"
+    },
+    {
+        "id": 31,
+        "name": "阿伦",
+        "position": "中锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/09/57aa4500.png"
+    },
+    {
+        "id": 10,
+        "name": "加兰",
+        "position": "控卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/10/6f31014d.png"
+    },
+    {
+        "id": 4,
+        "name": "莫布利",
+        "position": "大前锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/10/c44e804a.png"
+    },
+    {
+        "id": 32,
+        "name": "韦德",
+        "position": "大前锋",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202503/19/44efbfb3.png"
+    },
+    {
+        "id": 45,
+        "name": "米切尔",
+        "position": "分卫",
+        "team": "Cavaliers",
+        "teamName": "克利夫兰骑士",
+        "image": "https://file.qiumiwu.com/player/202410/09/e6597382.png"
+    },
+         {
+        "id": 2,
+        "name": "杰罗姆",
+        "position": "分卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/10/06dae356.png"
+    },
+    {
+        "id": 2,
+        "name": "兰代尔",
+        "position": "中锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202411/02/7b3622ac.png"
+    },
+    {
+        "id": 13,
+        "name": "哈维",
+        "position": "中锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/03/cce65d82.png"
+    },
+    {
+        "id": 23,
+        "name": "考沃德",
+        "position": "前锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202506/16/1531b6c4.png"
+    },
+    {
+        "id": 10,
+        "name": "斯莫尔",
+        "position": "后卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202506/27/b1c5b38b.png"
+    },
+    {
+        "id": 21,
+        "name": "马沙克",
+        "position": "后卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202507/14/0b4a3131.png"
+    },
+    {
+        "id": 3,
+        "name": "波普",
+        "position": "分卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202411/10/7b49c67f.png"
+    },
+    {
+        "id": 8,
+        "name": "史蒂文斯",
+        "position": "前锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/10/57086ec7.png"
+    },
+    {
+        "id": 1,
+        "name": "小皮蓬",
+        "position": "后卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/10/206b1f.png"
+    },
+    {
+        "id": 14,
+        "name": "埃迪",
+        "position": "中锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/13/948165dd.png"
+    },
+    {
+        "id": 24,
+        "name": "斯潘塞",
+        "position": "后卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202503/14/42ec3027.png"
+    },
+    {
+        "id": 0,
+        "name": "威尔斯",
+        "position": "前锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202505/09/59200f63.png"
+    },
+    {
+        "id": 45,
+        "name": "G.G.杰克逊",
+        "position": "前锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202310/25/5b70c7d8.png"
+    },
+    {
+        "id": 13,
+        "name": "杰克逊",
+        "position": "大前锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/09/5a3b28ef.png"
+    },
+    {
+        "id": 7,
+        "name": "阿尔达马",
+        "position": "大前锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202504/12/3c78c65e.png"
+    },
+    {
+        "id": 5,
+        "name": "威廉姆斯",
+        "position": "后卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202507/01/64678665.png"
+    },
+    {
+        "id": 46,
+        "name": "康查尔",
+        "position": "分卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/10/d34c02c0.png"
+    },
+    {
+        "id": 12,
+        "name": "莫兰特",
+        "position": "控卫",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/10/043f90ef.png"
+    },
+    {
+        "id": 15,
+        "name": "克拉克",
+        "position": "大前锋",
+        "team": "grizzlies",
+        "teamName": "孟菲斯灰熊",
+        "image": "https://file.qiumiwu.com/player/202410/10/e6a8dfcb.png"
+    },
             // 湖人队
-            {
-                id: 6,
-                name: "勒布朗·詹姆斯",
-                position: "小前锋",
-                team: "lakers",
-                teamName: "洛杉矶湖人",
-                ppg: 25.4,
-                rpg: 7.9,
-                apg: 7.9,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png"
-            },
-            {
-                id: 3,
-                name: "安东尼·戴维斯",
-                position: "大前锋/中锋",
-                team: "mavericks",
-                teamName: "达拉斯独行侠",
-                ppg: 24.7,
-                rpg: 12.5,
-                apg: 2.4,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203076.png"
-            },
-            {
-                id: 1,
-                name: "德安吉洛·拉塞尔",
-                position: "控球后卫",
-                team: "mavericks",
-                teamName: "达拉斯独行侠",
-                ppg: 17.4,
-                rpg: 3.0,
-                apg: 6.1,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1626156.png"
-            },
-            
-            // 勇士队
-            {
-                id: 30,
-                name: "斯蒂芬·库里",
-                position: "控球后卫",
-                team: "warriors",
-                teamName: "金州勇士",
-                ppg: 29.4,
-                rpg: 5.5,
-                apg: 6.3,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"
-            },
-          
-          
-            
-            // 篮网队
-            {
-                id: 7,
-                name: "凯文·杜兰特",
-                position: "小前锋",
-                team: "rokcets",
-                teamName: "休斯顿火箭",
-                ppg: 29.7,
-                rpg: 6.7,
-                apg: 5.3,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201142.png"
-            },
-            
-            // 公牛队
-            {
-                id: 11,
-                name: "扎克·拉文",
-                position: "得分后卫",
-                team: "kings",
-                teamName: "萨拉门托国王",
-                ppg: 24.4,
-                rpg: 4.6,
-                apg: 4.5,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203897.png"
-            },
-            {
-                id: 9,
-                name: "德玛尔·德罗赞",
-                position: "小前锋",
-                team: "kings",
-                teamName: "萨拉门托国王",
-                ppg: 24.5,
-                rpg: 4.6,
-                apg: 5.1,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201942.png"
-            },
-            
-            // 凯尔特人
-            {
-                id: 7,
-                name: "杰伦·布朗",
-                position: "小前锋",
-                team: "celtics",
-                teamName: "波士顿凯尔特人",
-                ppg: 23.6,
-                rpg: 6.1,
-                apg: 3.5,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1627759.png"
-            },
-            {
-                id: 0,
-                name: "杰森·塔图姆",
-                position: "小前锋",
-                team: "celtics",
-                teamName: "波士顿凯尔特人",
-                ppg: 30.1,
-                rpg: 8.8,
-                apg: 4.6,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628369.png"
-            },
-            
-            // 雄鹿队
-            {
-                id: 34,
-                name: "扬尼斯·阿德托昆博",
-                position: "大前锋",
-                team: "bucks",
-                teamName: "密尔沃基雄鹿",
-                ppg: 31.1,
-                rpg: 11.8,
-                apg: 5.7,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203507.png"
-            },
-            {
-                id: 0,
-                name: "达米安·利拉德",
-                position: "控球后卫",
-                team: "bucks",
-                teamName: "密尔沃基雄鹿",
-                ppg: 32.2,
-                rpg: 4.8,
-                apg: 7.3,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203081.png"
-            },
-            
-            // 独行侠
-            {
-                id: 77,
-                name: "卢卡·东契奇",
-                position: "控球后卫",
-                team: "lakers",
-                teamName: "洛杉矶湖人",
-                ppg: 34.3,
-                rpg: 9.1,
-                apg: 9.8,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1629029.png"
-            },
-            {
-                id: 11,
-                name: "凯里·欧文",
-                position: "控球后卫",
-                team: "mavericks",
-                teamName: "达拉斯独行侠",
-                ppg: 26.9,
-                rpg: 5.0,
-                apg: 6.0,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202681.png"
-            },
-            
-            // 掘金队
-            {
-                id: 15,
-                name: "尼古拉·约基奇",
-                position: "中锋",
-                team: "nuggets",
-                teamName: "丹佛掘金",
-                ppg: 26.4,
-                rpg: 12.4,
-                apg: 9.0,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203999.png"
-            },
-            {
-                id: 27,
-                name: "贾马尔·穆雷",
-                position: "控球后卫",
-                team: "nuggets",
-                teamName: "丹佛掘金",
-                ppg: 20.0,
-                rpg: 4.0,
-                apg: 6.2,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1627750.png"
-            },
-            
-            // 76人队
-            {
-                id: 21,
-                name: "乔尔·恩比德",
-                position: "中锋",
-                team: "ers",
-                teamName: "费城76人",
-                ppg: 33.1,
-                rpg: 10.2,
-                apg: 4.2,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203954.png"
-            },
-            {
-                id: 1,
-                name: "泰利斯·马克西",
-                position: "控球后卫",
-                team: "ers",
-                teamName: "费城76人",
-                ppg: 25.9,
-                rpg: 3.7,
-                apg: 6.2,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630178.png"
-            },
-            
-            // 其他球队球员（为节省空间，仅列出部分，完整版超过50人）
-            {
-                id: 11,
-                name: "克莱·汤普森",
-                position: "得分后卫",
-                team: "mavericks",
-                teamName: "达拉斯独行侠",
-                ppg: 15.4,
-                rpg: 3.5,
-                apg: 2.3,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202691.png"
-            },
-            {
-                id: 23,
-                name: "德雷蒙德·格林",
-                position: "大前锋",
-                team: "warriors",
-                teamName: "金州勇士",
-                ppg: 8.0,
-                rpg: 7.0,
-                apg: 7.0,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203110.png"
-            },
-            
-            {
-                id: 1,
-                name: "德文·布克",
-                position: "得分后卫",
-                team: "suns",
-                teamName: "菲尼克斯太阳",
-                ppg: 27.8,
-                rpg: 4.5,
-                apg: 6.8,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1626164.png"
-            },
-            {
-                id: 3,
-                name: "克里斯·保罗",
-                position: "控球后卫",
-                team: "clipppers",
-                teamName: "洛杉矶快船",
-                ppg: 13.9,
-                rpg: 4.3,
-                apg: 8.9,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/101108.png"
-            },
-            {
-                id: 13,
-                name: "保罗·乔治",
-                position: "小前锋",
-                team: "ers",
-                teamName: "费城76人",
-                ppg: 23.8,
-                rpg: 6.1,
-                apg: 5.1,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202331.png"
-            },
-            {
-                id: 2,
-                name: "科怀·伦纳德",
-                position: "小前锋",
-                team: "clippers",
-                teamName: "洛杉矶快船",
-                ppg: 23.8,
-                rpg: 6.5,
-                apg: 3.9,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202695.png"
-            },
-            {
-                id: 14,
-                name: "吉米·巴特勒",
-                position: "小前锋",
-                team: "warriors",
-                teamName: "金州勇士",
-                ppg: 22.9,
-                rpg: 5.9,
-                apg: 5.3,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/202710.png"
-            },
-            {
-                id: 22,
-                name: "巴姆·阿德巴约",
-                position: "中锋",
-                team: "heat",
-                teamName: "迈阿密热火",
-                ppg: 20.4,
-                rpg: 9.2,
-                apg: 3.2,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628389.png"
-            },
-            
-            {
-                id: 0,
-                name: "达米安·利拉德",
-                position: "控球后卫",
-                team: "blazers",
-                teamName: "波特兰开拓者",
-                ppg: 27.2,
-                rpg: 4.8,
-                apg: 7.3,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/203081.png"
-            },
-          
-           
-            {
-                id: 13,
-                name: "詹姆斯·哈登",
-                position: "控球后卫",
-                team: "clippers",
-                teamName: "洛杉矶快船",
-                ppg: 21.0,
-                rpg: 6.1,
-                apg: 10.7,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201935.png"
-            },
-            {
-                id: 7,
-                name: "杰伦·布朗",
-                position: "得分后卫",
-                team: "celtics",
-                teamName: "波士顿凯尔特人",
-                ppg: 26.6,
-                rpg: 6.9,
-                apg: 3.5,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1627759.png"
-            },
-            {
-                id: 30,
-                name: "特雷·杨",
-                position: "控球后卫",
-                team: "hawks",
-                teamName: "亚特兰大老鹰",
-                ppg: 26.2,
-                rpg: 3.0,
-                apg: 10.2,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1629027.png"
-            },
-            {
-                id: 32,
-                name: "卡尔-安东尼·唐斯",
-                position: "大前锋/中锋",
-                team: "knicks",
-                teamName: "纽约尼克斯",
-                ppg: 20.8,
-                rpg: 8.1,
-                apg: 4.8,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1626157.png"
-            },
-            {
-                id: 5,
-                name: "凯德·坎宁安",
-                position: "控球后卫",
-                team: "pistons",
-                teamName: "底特律活塞",
-                ppg: 22.2,
-                rpg: 4.0,
-                apg: 7.5,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630595.png"
-            },
-            {
-                id: 13,
-                name: "保罗·班凯罗",
-                position: "大前锋",
-                team: "magic",
-                teamName: "奥兰多魔术",
-                ppg: 20.0,
-                rpg: 6.9,
-                apg: 3.7,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1631094.png"
-            },
-          
-            {
-                id: 7,
-                name: "劳里·马尔卡宁",
-                position: "大前锋",
-                team: "jazz",
-                teamName: "犹他爵士",
-                ppg: 23.0,
-                rpg: 8.1,
-                apg: 1.9,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628374.png"
-            },
-          
-            {
-                id: 20,
-                name: "安东尼·爱德华兹",
-                position: "得分后卫",
-                team: "timberwolves",
-                teamName: "明尼苏达森林狼",
-                ppg: 26.0,
-                rpg: 5.0,
-                apg: 5.0,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630162.png"
-            },
-            {
-                id: 22,
-                name: "米卡尔·布里奇斯",
-                position: "小前锋",
-                team: "nickers",
-                teamName: "纽约尼克斯",
-                ppg: 20.1,
-                rpg: 4.4,
-                apg: 3.3,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628969.png"
-            },
-            {
-                id: 33,
-                name: "克里斯塔普斯·波尔津吉斯",
-                position: "中锋",
-                team: "celtics",
-                teamName: "波士顿凯尔特人",
-                ppg: 19.5,
-                rpg: 7.1,
-                apg: 1.8,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/204001.png"
-            },
-            {
-                id: 9,
-                name: "凯尔·库兹马",
-                position: "大前锋",
-                team: "bucks",
-                teamName: "",
-                ppg: 21.2,
-                rpg: 7.2,
-                apg: 3.7,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628398.png"
-            },
-            {
-                id: 1,
-                name: "斯科蒂·巴恩斯",
-                position: "小前锋",
-                team: "raptors",
-                teamName: "多伦多猛龙",
-                ppg: 19.9,
-                rpg: 8.2,
-                apg: 6.1,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630567.png"
-            },
-            {
-                id: 10,
-                name: "泰瑞斯·哈利伯顿",
-                position: "控球后卫",
-                team: "pacers",
-                teamName: "印第安纳步行者",
-                ppg: 20.7,
-                rpg: 3.7,
-                apg: 10.4,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1630169.png"
-            },
-            {
-                id: 2,
-                name: "贾·莫兰特",
-                position: "控球后卫",
-                team: "grizzlies",
-                teamName: "孟菲斯灰熊",
-                ppg: 25.1,
-                rpg: 5.6,
-                apg: 8.1,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1629630.png"
-            },
-            {
-                id: 15,
-                name: "小贾伦·杰克逊",
-                position: "大前锋",
-                team: "grizzlies",
-                teamName: "孟菲斯灰熊",
-                ppg: 18.6,
-                rpg: 6.8,
-                apg: 1.8,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628991.png"
-            },
-            // {
-            //     id: 0,
-            //     name: "拉塞尔·威斯布鲁克",
-            //     position: "控球后卫",
-            //     team: "clippers",
-            //     teamName: "洛杉矶快船",
-            //     ppg: 15.9,
-            //     rpg: 5.8,
-            //     apg: 7.5,
-            //     image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201566.png"
-            // },
-            {
-                id: 4,
-                name: "达龙·福克斯",
-                position: "控球后卫",
-                team: "spurs",
-                teamName: "圣安东尼奥马刺",
-                ppg: 27.0,
-                rpg: 4.0,
-                apg: 5.8,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628368.png"
-            },
-            {
-                id: 13,
-                name: "多曼塔斯·萨博尼斯",
-                position: "大前锋",
-                team: "kings",
-                teamName: "萨克拉门托国王",
-                ppg: 19.0,
-                rpg: 12.7,
-                apg: 7.1,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1627742.png"
-            },
-            {
-                id: 8,
-                name: "扎克·科林斯",
-                position: "中锋",
-                team: "spurs",
-                teamName: "圣安东尼奥马刺",
-                ppg: 13.5,
-                rpg: 8.0,
-                apg: 3.0,
-                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1628380.png"
-            }
+    {
+        "id": 20,
+        "name": "尼昂",
+        "position": "小前锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202502/14/df97a58a.png"
+    },
+    {
+        "id": 8,
+        "name": "米诺特",
+        "position": "前锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/10/e33fa389.png"
+    },
+    {
+        "id": 55,
+        "name": "谢尔曼",
+        "position": "前锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202506/02/dfde0254.png"
+    },
+    {
+        "id": 28,
+        "name": "冈萨雷斯",
+        "position": "后卫",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202505/29/2f459263.png"
+    },
+    {
+        "id": 77,
+        "name": "威廉姆斯",
+        "position": "中锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202506/27/6b05842a.png"
+    },
+    {
+        "id": 29,
+        "name": "舒尔加",
+        "position": "后卫",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202506/27/b786ffd9.png"
+    },
+    {
+        "id": 55,
+        "name": "加尔扎",
+        "position": "中锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/10/a94db16c.png"
+    },
+    {
+        "id": 1,
+        "name": "西蒙斯",
+        "position": "分卫",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/09/fa27992f.png"
+    },
+    {
+        "id": 44,
+        "name": "诺里斯",
+        "position": "前锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/22/3fda74f7.png"
+    },
+    {
+        "id": 12,
+        "name": "克雷格",
+        "position": "小前锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/09/8bc9fff3.png"
+    },
+    {
+        "id": 26,
+        "name": "蒂尔曼",
+        "position": "前锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/02/2c984c1b.png"
+    },
+    {
+        "id": 27,
+        "name": "沃尔什",
+        "position": "后卫",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/02/5de7b157.png"
+    },
+    {
+        "id": 88,
+        "name": "克塔",
+        "position": "中锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/02/bc279bbe.png"
+    },
+    {
+        "id": 7,
+        "name": "布朗",
+        "position": "分卫",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/01/0d59dc8b.png"
+    },
+    {
+        "id": 30,
+        "name": "豪瑟",
+        "position": "小前锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202503/19/200acd0a.png"
+    },
+    {
+        "id": 42,
+        "name": "霍福德",
+        "position": "中锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202411/18/23c121b1.png"
+    },
+    {
+        "id": 11,
+        "name": "普里查德",
+        "position": "控卫",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/02/ac82e717.png"
+    },
+    {
+        "id": 0,
+        "name": "塔图姆",
+        "position": "小前锋",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202504/19/a81d437e.png"
+    },
+    {
+        "id": 9,
+        "name": "怀特",
+        "position": "控卫",
+        "team": "celtics",
+        "teamName": "波士顿凯尔特人",
+        "image": "https://file.qiumiwu.com/player/202410/01/ad2513.png"
+    },
+    {
+        "id": 12,
+        "name": "索伯",
+        "position": "中锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202506/16/de74f4e6.png"
+    },
+    {
+        "id": 23,
+        "name": "巴恩海泽",
+        "position": "前锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202506/27/f68f4d4a.png"
+    },
+    {
+        "id": 15,
+        "name": "卡尔森",
+        "position": "中锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202411/26/73558bd4.png"
+    },
+    {
+        "id": 6,
+        "name": "威廉姆斯",
+        "position": "前锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/10/41d9faa5.png"
+    },
+    {
+        "id": 88,
+        "name": "杜卡斯",
+        "position": "后卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202501/25/9c8a6a8a.png"
+    },
+    {
+        "id": 9,
+        "name": "卡鲁索",
+        "position": "分卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/17/c5bec592.png"
+    },
+    {
+        "id": 25,
+        "name": "米切尔",
+        "position": "后卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/13/f316b50b.png"
+    },
+    {
+        "id": 44,
+        "name": "托皮奇",
+        "position": "后卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/13/7e26c5de.png"
+    },
+    {
+        "id": 55,
+        "name": "哈尔滕施泰因",
+        "position": "中锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/17/eaab7c4a.png"
+    },
+    {
+        "id": 13,
+        "name": "迪昂",
+        "position": "前锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/10/73019378.png"
+    },
+    {
+        "id": 2,
+        "name": "亚历山大",
+        "position": "控卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/17/4420bd15.png"
+    },
+    {
+        "id": 34,
+        "name": "威廉姆斯",
+        "position": "小前锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202503/02/3e1812c3.png"
+    },
+    {
+        "id": 22,
+        "name": "华莱士",
+        "position": "后卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/10/198034bc.png"
+    },
+    {
+        "id": 5,
+        "name": "多尔特",
+        "position": "后卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/10/71f77829.png"
+    },
+    {
+        "id": 7,
+        "name": "霍姆格伦",
+        "position": "大前锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/10/85904acd.png"
+    },
+    {
+        "id": 21,
+        "name": "威金斯",
+        "position": "分卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/10/f3fc1528.png"
+    },
+    {
+        "id": 8,
+        "name": "威廉姆斯",
+        "position": "前锋",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202501/06/45402bc1.png"
+    },
+    {
+        "id": 11,
+        "name": "以赛亚·乔",
+        "position": "分卫",
+        "team": "thunder",
+        "teamName": "俄克拉荷马雷霆",
+        "image": "https://file.qiumiwu.com/player/202410/10/85b05b4d.png"
+    },
+    {
+        "id": 4,
+        "name": "琼斯",
+        "position": "后卫",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202507/11/3068b96e.png"
+    },
+    {
+        "id": 23,
+        "name": "约翰逊",
+        "position": "小前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/10/f4fd5a6b.png"
+    },
+    {
+        "id": 11,
+        "name": "B·布朗",
+        "position": "小前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202502/14/42ec48e7.png"
+    },
+    {
+        "id": 8,
+        "name": "小哈达威",
+        "position": "小前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/10/437ae45f.png"
+    },
+    {
+        "id": 23,
+        "name": "贝茨",
+        "position": "后卫",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202507/11/f9b682b8.png"
+    },
+    {
+        "id": 17,
+        "name": "瓦兰丘纳斯",
+        "position": "中锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202502/14/bef817fb.png"
+    },
+    {
+        "id": 24,
+        "name": "皮克特",
+        "position": "后卫",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/02/9dcfadfb.png"
+    },
+    {
+        "id": 5,
+        "name": "泰森",
+        "position": "前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/02/ed8cdbff.png"
+    },
+    {
+        "id": 4,
+        "name": "威斯布鲁克",
+        "position": "控卫",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/01/fabd9c06.png"
+    },
+    {
+        "id": 14,
+        "name": "福尔摩斯",
+        "position": "中锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/05/61a0e6a5.png"
+    },
+    {
+        "id": 21,
+        "name": "S·琼斯",
+        "position": "前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/18/ea86100c.png"
+    },
+    {
+        "id": 32,
+        "name": "戈登",
+        "position": "大前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202506/06/42391c87.png"
+    },
+    {
+        "id": 3,
+        "name": "斯特劳瑟",
+        "position": "后卫",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/02/47381a99.png"
+    },
+    {
+        "id": 6,
+        "name": "乔丹",
+        "position": "中锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202505/21/2f2a0888.png"
+    },
+    {
+        "id": 0,
+        "name": "布劳恩",
+        "position": "后卫",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202504/28/e1680520.png"
+    },
+    {
+        "id": 31,
+        "name": "钱查尔",
+        "position": "小前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/01/a08cd53a.png"
+    },
+    {
+        "id": 15,
+        "name": "约基奇",
+        "position": "中锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/01/da0b84d7.png"
+    },
+    {
+        "id": 27,
+        "name": "穆雷",
+        "position": "控卫",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/01/d28cbb8c.png"
+    },
+    {
+        "id": 22,
+        "name": "纳吉",
+        "position": "大前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/02/20e6db8b.png"
+    },
+    {
+        "id": 8,
+        "name": "沃特森",
+        "position": "前锋",
+        "team": "nuggets",
+        "teamName": "丹佛掘金",
+        "image": "https://file.qiumiwu.com/player/202410/02/10cacef4.png"
+    },
+    {
+        "id": 14,
+        "name": "纽厄尔",
+        "position": "前锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202505/30/913342.png"
+    },
+    {
+        "id": 30,
+        "name": "伊莱·恩迪亚耶",
+        "position": "中锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202506/30/43bc34.png"
+    },
+    {
+        "id": 10,
+        "name": "肯纳德",
+        "position": "分卫",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/09/af9d0d0c.png"
+    },
+    {
+        "id": 7,
+        "name": "久里希奇",
+        "position": "前锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202408/02/655a8388.png"
+    },
+    {
+        "id": 8,
+        "name": "波尔津吉斯",
+        "position": "中锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202411/18/c00a7cc1.png"
+    },
+    {
+        "id": 9,
+        "name": "沃克",
+        "position": "分卫",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/10/f5e7eed9.png"
+    },
+    {
+        "id": 0,
+        "name": "托平",
+        "position": "前锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202412/13/5a59d40b.png"
+    },
+    {
+        "id": 24,
+        "name": "马修斯",
+        "position": "分卫",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/10/ed2d25ff.png"
+    },
+    {
+        "id": 2,
+        "name": "华莱士",
+        "position": "后卫",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/21/ab63bb4d.png"
+    },
+    {
+        "id": 5,
+        "name": "丹尼尔斯",
+        "position": "后卫",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/10/92a34262.png"
+    },
+    {
+        "id": 10,
+        "name": "里萨谢",
+        "position": "大前锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/05/f274aa26.png"
+    },
+    {
+        "id": 27,
+        "name": "克雷伊奇",
+        "position": "后卫",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202507/25/79ddb746.png"
+    },
+    {
+        "id": 4,
+        "name": "巴夫金",
+        "position": "后卫",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/10/70fc4506.png"
+    },
+    {
+        "id": 18,
+        "name": "盖耶",
+        "position": "前锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/10/482b10de.png"
+    },
+    {
+        "id": 1,
+        "name": "约翰逊",
+        "position": "小前锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/10/98dea867.png"
+    },
+    {
+        "id": 17,
+        "name": "奧孔古",
+        "position": "大前锋",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202505/14/68640804.png"
+    },
+    {
+        "id": 11,
+        "name": "特雷杨",
+        "position": "控卫",
+        "team": "hawks",
+        "teamName": "亚特兰大老鹰",
+        "image": "https://file.qiumiwu.com/player/202410/09/df480d38.png"
+    },
+    {
+        "id": 1,
+        "name": "琼斯",
+        "position": "后卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202506/27/ca617d71.png"
+    },
+    {
+        "id": 2,
+        "name": "彼得",
+        "position": "后卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202506/27/2864b85d.png"
+    },
+    {
+        "id": 30,
+        "name": "赫夫",
+        "position": "中锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/c3c3db58.png"
+    },
+    {
+        "id": 13,
+        "name": "怀斯曼",
+        "position": "中锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/2e705c.png"
+    },
+    {
+        "id": 13,
+        "name": "T·布拉德利",
+        "position": "中锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202411/26/de7a021b.png"
+    },
+    {
+        "id": 10,
+        "name": "丹尼斯",
+        "position": "后卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/09/32f439b4.png"
+    },
+    {
+        "id": 3,
+        "name": "布莱恩特",
+        "position": "中锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/09/392245b0.png"
+    },
+    {
+        "id": 8,
+        "name": "弗里曼",
+        "position": "前锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202411/30/2593b9.png"
+    },
+    {
+        "id": 12,
+        "name": "弗菲",
+        "position": "前锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202505/01/d5185e2c.png"
+    },
+    {
+        "id": 29,
+        "name": "杰克逊",
+        "position": "后卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/446d941d.png"
+    },
+    {
+        "id": 43,
+        "name": "西亚卡姆",
+        "position": "大前锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/09/e65896c0.png"
+    },
+    {
+        "id": 16,
+        "name": "约翰逊",
+        "position": "大前锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202507/08/5c577a2a.png"
+    },
+    {
+        "id": 26,
+        "name": "谢泼德",
+        "position": "后卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/da0371d2.png"
+    },
+    {
+        "id": 5,
+        "name": "沃克",
+        "position": "前锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/4204ad34.png"
+    },
+    {
+        "id": 1,
+        "name": "托平",
+        "position": "大前锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202411/11/b96c97d7.png"
+    },
+    {
+        "id": 22,
+        "name": "杰克逊",
+        "position": "小前锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/be23bccf.png"
+    },
+    {
+        "id": 0,
+        "name": "哈利伯顿",
+        "position": "控卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/e56eb59c.png"
+    },
+    {
+        "id": 0,
+        "name": "马瑟林",
+        "position": "分卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/99695491.png"
+    },
+    {
+        "id": 9,
+        "name": "麦康奈尔",
+        "position": "控卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202411/26/1f1880ca.png"
+    },
+    {
+        "id": 2,
+        "name": "内姆布哈德",
+        "position": "控卫",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202410/10/09c4f2c0.png"
+    },
+    {
+        "id": 23,
+        "name": "内史密斯",
+        "position": "小前锋",
+        "team": "pacers",
+        "teamName": "印第安纳步行者",
+        "image": "https://file.qiumiwu.com/player/202411/11/32c2ee69.png"
+    },
+    {
+        "id": 5,
+        "name": "波普拉",
+        "position": "后卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202507/12/9bb5fd37.png"
+    },
+    {
+        "id": 2,
+        "name": "格里",
+        "position": "后卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202507/12/1c120419.png"
+    },
+    {
+        "id": 32,
+        "name": "利德尔",
+        "position": "前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/016edfd9.png"
+    },
+    {
+        "id": 17,
+        "name": "河村勇辉",
+        "position": "后卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/15/b90ac8dd.png"
+    },
+    {
+        "id": 30,
+        "name": "奥尔布里希",
+        "position": "前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202506/27/186c6308.png"
+    },
+    {
+        "id": 35,
+        "name": "奥科罗",
+        "position": "小前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/af55a9c1.png"
+    },
+    {
+        "id": 12,
+        "name": "埃森格",
+        "position": "前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202505/30/0c913d5b.png"
+    },
+    {
+        "id": 12,
+        "name": "柯林斯",
+        "position": "大前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202502/14/e444ff80.png"
+    },
+    {
+        "id": 13,
+        "name": "赫尔特",
+        "position": "分卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202502/14/3384abd5.png"
+    },
+    {
+        "id": 30,
+        "name": "琼斯",
+        "position": "控卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202502/15/33d2e2fc.png"
+    },
+    {
+        "id": 15,
+        "name": "菲利普斯",
+        "position": "前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202411/19/87f5150c.png"
+    },
+    {
+        "id": 14,
+        "name": "布泽利斯",
+        "position": "前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/13/9c9d649d.png"
+    },
+    {
+        "id": 20,
+        "name": "米勒",
+        "position": "前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202412/30/3d888c9a.png"
+    },
+    {
+        "id": 7,
+        "name": "史密斯",
+        "position": "大前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/0bfb7437.png"
+    },
+    {
+        "id": 11,
+        "name": "多苏穆",
+        "position": "分卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/39512efc.png"
+    },
+    {
+        "id": 22,
+        "name": "塔克",
+        "position": "小前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/d8c72b06.png"
+    },
+    {
+        "id": 3,
+        "name": "吉迪",
+        "position": "分卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/3a43a106.png"
+    },
+    {
+        "id": 25,
+        "name": "特里",
+        "position": "前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/570d0848.png"
+    },
+    {
+        "id": 5,
+        "name": "卡特",
+        "position": "控卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/09/53b3a2ef.png"
+    },
+    {
+        "id": 9,
+        "name": "武切维奇",
+        "position": "中锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202501/29/888d4f83.png"
+    },
+    {
+        "id": 0,
+        "name": "怀特",
+        "position": "控卫",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/fefeee0c.png"
+    },
+    {
+        "id": 44,
+        "name": "威廉姆斯",
+        "position": "大前锋",
+        "team": "bulls",
+        "teamName": "芝加哥公牛",
+        "image": "https://file.qiumiwu.com/player/202410/10/806417d2.png"
+    },
+    {
+        "id": 20,
+        "name": "拉尼尔",
+        "position": "后卫",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202506/27/6dc320dd.png"
+    },
+    {
+        "id": 3,
+        "name": "勒韦尔",
+        "position": "分卫",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202502/14/5f8a0099.png"
+    },
+    {
+        "id": 55,
+        "name": "罗宾逊",
+        "position": "前锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/09/55940c6d.png"
+    },
+    {
+        "id": 34,
+        "name": "克林特曼",
+        "position": "前锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/05/8406bf74.png"
+    },
+    {
+        "id": 35,
+        "name": "史密斯",
+        "position": "前锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/22/2852e6fe.png"
+    },
+    {
+        "id": 7,
+        "name": "里德",
+        "position": "前锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/10/5eb67ba5.png"
+    },
+    {
+        "id": 12,
+        "name": "哈里斯",
+        "position": "前锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202411/02/25a26f18.png"
+    },
+    {
+        "id": 24,
+        "name": "詹金斯",
+        "position": "后卫",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/21/b9546f21.png"
+    },
+    {
+        "id": 0,
+        "name": "霍兰德",
+        "position": "前锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/05/fe09adc7.png"
+    },
+    {
+        "id": 5,
+        "name": "比斯利",
+        "position": "分卫",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/09/a8fc6c00.png"
+    },
+    {
+        "id": 9,
+        "name": "汤普森",
+        "position": "前锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/10/85641baf.png"
+    },
+    {
+        "id": 25,
+        "name": "萨瑟",
+        "position": "后卫",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/10/34be2507.png"
+    },
+    {
+        "id": 2,
+        "name": "康宁汉姆",
+        "position": "控卫",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202504/04/8f2d8f8d.png"
+    },
+    {
+        "id": 0,
+        "name": "杜伦",
+        "position": "中锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/10/37f6c552.png"
+    },
+    {
+        "id": 23,
+        "name": "艾维",
+        "position": "控卫",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/10/e3aa244a.png"
+    },
+    {
+        "id": 28,
+        "name": "斯图尔特",
+        "position": "中锋",
+        "team": "pistons",
+        "teamName": "底特律活塞",
+        "image": "https://file.qiumiwu.com/player/202410/10/02b10fa2.png"
+    },
+    {
+        "id": 12,
+        "name": "迪亚瓦拉",
+        "position": "前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202507/12/65b59401.png"
+    },
+    {
+        "id": 0,
+        "name": "克拉克森",
+        "position": "后卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202503/18/818df6.png"
+    },
+    {
+        "id": 28,
+        "name": "亚布塞莱",
+        "position": "前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202410/09/689b3952.png"
+    },
+    {
+        "id": 14,
+        "name": "比彻姆",
+        "position": "前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202502/15/68c99532.png"
+    },
+    {
+        "id": 28,
+        "name": "沃特森",
+        "position": "前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202409/27/ac46aa7b.png"
+    },
+    {
+        "id": 17,
+        "name": "塔克",
+        "position": "大前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202404/24/3f9bdc26.png"
+    },
+    {
+        "id": 4,
+        "name": "达迪耶",
+        "position": "后卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202507/04/c42f8a7e.png"
+    },
+    {
+        "id": 0,
+        "name": "赖特",
+        "position": "分卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202503/02/45f453.png"
+    },
+    {
+        "id": 44,
+        "name": "沙梅特",
+        "position": "分卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202410/09/9f037060.png"
+    },
+    {
+        "id": 55,
+        "name": "胡克波尔蒂",
+        "position": "中锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/08/bc29b561.png"
+    },
+    {
+        "id": 13,
+        "name": "科勒克",
+        "position": "后卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/08/c8bcc49c.png"
+    },
+    {
+        "id": 9,
+        "name": "小麦卡勒",
+        "position": "前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/08/2edfc143.png"
+    },
+    {
+        "id": 1,
+        "name": "佩恩",
+        "position": "控卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/12/8c17e415.png"
+    },
+    {
+        "id": 25,
+        "name": "布里奇斯",
+        "position": "小前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/12/0e3ffd78.png"
+    },
+    {
+        "id": 32,
+        "name": "唐斯",
+        "position": "中锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/12/ed372b04.png"
+    },
+    {
+        "id": 8,
+        "name": "阿努诺比",
+        "position": "小前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/12/6232669e.png"
+    },
+    {
+        "id": 5,
+        "name": "阿丘瓦",
+        "position": "大前锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/13/9f4e7428.png"
+    },
+    {
+        "id": 3,
+        "name": "哈特",
+        "position": "分卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202502/14/72165f89.png"
+    },
+    {
+        "id": 11,
+        "name": "布伦森",
+        "position": "控卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/12/e34c403d.png"
+    },
+    {
+        "id": 2,
+        "name": "麦克布莱德",
+        "position": "控卫",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202503/03/520522a5.png"
+    },
+    {
+        "id": 23,
+        "name": "罗宾逊",
+        "position": "中锋",
+        "team": "knicks",
+        "teamName": "纽约尼克斯",
+        "image": "https://file.qiumiwu.com/player/202412/12/1a022a6c.png"
+    },
+    {
+        "id": 3,
+        "name": "戴维斯",
+        "position": "后卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202504/28/490d2b2d.png"
+    },
+    {
+        "id": 17,
+        "name": "尤班克斯",
+        "position": "大前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202502/14/e469d0cd.png"
+    },
+    {
+        "id": 5,
+        "name": "克利福德",
+        "position": "后卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202506/26/adf02ff8.png"
+    },
+    {
+        "id": 42,
+        "name": "雷诺",
+        "position": "中锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202506/27/eb1635af.png"
+    },
+    {
+        "id": 32,
+        "name": "卡德维尔",
+        "position": "中锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202507/11/5232465c.png"
+    },
+    {
+        "id": 40,
+        "name": "史蒂文斯",
+        "position": "后卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202504/07/e7424d6c.png"
+    },
+    {
+        "id": 9,
+        "name": "沙里奇",
+        "position": "大前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202503/26/a9771822.png"
+    },
+    {
+        "id": 17,
+        "name": "施罗德",
+        "position": "控卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202501/29/a4c34aab.png"
+    },
+    {
+        "id": 15,
+        "name": "琼斯",
+        "position": "后卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202501/22/fa439719.png"
+    },
+    {
+        "id": 32,
+        "name": "泰勒",
+        "position": "前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202410/10/530f6a60.png"
+    },
+    {
+        "id": 0,
+        "name": "蒙克",
+        "position": "分卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202410/17/580e3f2a.png"
+    },
+    {
+        "id": 20,
+        "name": "富尔茨",
+        "position": "控卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202404/24/4b60499e.png"
+    },
+    {
+        "id": 3,
+        "name": "琼斯",
+        "position": "中锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202410/11/734fdc17.png"
+    },
+    {
+        "id": 8,
+        "name": "拉文",
+        "position": "分卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202502/14/86c3f659.png"
+    },
+    {
+        "id": 22,
+        "name": "卡特",
+        "position": "后卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202410/13/2914eb3a.png"
+    },
+    {
+        "id": 99,
+        "name": "克劳德",
+        "position": "大前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202412/20/a90209f1.png"
+    },
+    {
+        "id": 7,
+        "name": "麦克德莫特",
+        "position": "小前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202411/02/2c1885b9.png"
+    },
+    {
+        "id": 10,
+        "name": "德罗赞",
+        "position": "小前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202506/14/0fe62f3e.png"
+    },
+    {
+        "id": 11,
+        "name": "萨博尼斯",
+        "position": "大前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202410/17/5b87fb47.png"
+    },
+    {
+        "id": 13,
+        "name": "穆雷",
+        "position": "小前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202410/10/46966667.png"
+    },
+    {
+        "id": 41,
+        "name": "莱尔斯",
+        "position": "大前锋",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202410/17/dbb74817.png"
+    },
+    {
+        "id": 23,
+        "name": "埃利斯",
+        "position": "后卫",
+        "team": "kings",
+        "teamName": "萨克拉门托国王",
+        "image": "https://file.qiumiwu.com/player/202410/10/48cc7911.png"
+    },
+    {
+        "id": 23,
+        "name": "马尔科维奇",
+        "position": "前锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202506/27/22372eea.png"
+    },
+    {
+        "id": 18,
+        "name": "米西奇",
+        "position": "后卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202502/23/a3deea38.png"
+    },
+    {
+        "id": 50,
+        "name": "安东尼",
+        "position": "控卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/10/af0c5faf.png"
+    },
+    {
+        "id": 7,
+        "name": "利文斯顿",
+        "position": "前锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/02/080f2b20.png"
+    },
+    {
+        "id": 19,
+        "name": "西尔斯",
+        "position": "后卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202506/27/11d85d13.png"
+    },
+    {
+        "id": 14,
+        "name": "G·哈里斯",
+        "position": "分卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/09/565fb9.png"
+    },
+    {
+        "id": 33,
+        "name": "特纳",
+        "position": "中锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/09/77041c2c.png"
+    },
+    {
+        "id": 35,
+        "name": "南斯",
+        "position": "前锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202309/15/654e5ad5.png"
+    },
+    {
+        "id": 15,
+        "name": "布伊亚",
+        "position": "后卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202503/19/d8fca511.png"
+    },
+    {
+        "id": 3,
+        "name": "波特",
+        "position": "后卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202504/28/cd6e0871.png"
+    },
+    {
+        "id": 18,
+        "name": "库兹马",
+        "position": "小前锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202503/18/2b00363e.png"
+    },
+    {
+        "id": 0,
+        "name": "西姆斯",
+        "position": "中锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202503/19/3073d101.png"
+    },
+    {
+        "id": 21,
+        "name": "史密斯",
+        "position": "前锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/05/02efde3e.png"
+    },
+    {
+        "id": 5,
+        "name": "特伦特",
+        "position": "分卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/09/7269681c.png"
+    },
+    {
+        "id": 13,
+        "name": "罗林斯",
+        "position": "后卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/02/292ced16.png"
+    },
+    {
+        "id": 17,
+        "name": "乌穆德",
+        "position": "后卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/02/c7e24ef6.png"
+    },
+    {
+        "id": 12,
+        "name": "普林斯",
+        "position": "大前锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/09/75ddf162.png"
+    },
+    {
+        "id": 44,
+        "name": "杰克逊",
+        "position": "后卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/02/d527a5fa.png"
+    },
+    {
+        "id": 34,
+        "name": "阿德托昆博",
+        "position": "大前锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202505/05/7d58f651.png"
+    },
+    {
+        "id": 20,
+        "name": "格林",
+        "position": "后卫",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/02/5a7e3955.png"
+    },
+    {
+        "id": 9,
+        "name": "波蒂斯",
+        "position": "前锋",
+        "team": "bucks",
+        "teamName": "密尔沃基雄鹿",
+        "image": "https://file.qiumiwu.com/player/202410/09/0e5484f1.png"
+    },
+    {
+        "id": 2,
+        "name": "史密斯",
+        "position": "大前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202501/08/21d15b94.png"
+    },
+    {
+        "id": 12,
+        "name": "奥科吉",
+        "position": "小前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202502/06/2b2d3998.png"
+    },
+    {
+        "id": 24,
+        "name": "克劳福德",
+        "position": "前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/18/39bf9051.png"
+    },
+    {
+        "id": 20,
+        "name": "戴维森",
+        "position": "后卫",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202504/20/f40e61f3.png"
+    },
+    {
+        "id": 7,
+        "name": "杜兰特",
+        "position": "大前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202412/04/fde099e4.png"
+    },
+    {
+        "id": 12,
+        "name": "哈里斯",
+        "position": "后卫",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202411/19/aa965fba.png"
+    },
+    {
+        "id": 99,
+        "name": "卡佩拉",
+        "position": "中锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/09/b0596dc5.png"
+    },
+    {
+        "id": 15,
+        "name": "谢泼德",
+        "position": "后卫",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/13/4f3b2005.png"
+    },
+    {
+        "id": 3,
+        "name": "丹特",
+        "position": "中锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/11/65fa659b.png"
+    },
+    {
+        "id": 12,
+        "name": "亚当斯",
+        "position": "中锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/09/64d63536.png"
+    },
+    {
+        "id": 5,
+        "name": "范弗利特",
+        "position": "控卫",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/09/1b6942d8.png"
+    },
+    {
+        "id": 10,
+        "name": "史密斯",
+        "position": "大前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/10/0b8e0f0e.png"
+    },
+    {
+        "id": 0,
+        "name": "霍乐迪",
+        "position": "后卫",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/09/c364944a.png"
+    },
+    {
+        "id": 1,
+        "name": "汤普森",
+        "position": "前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202504/04/3db0bd4d.png"
+    },
+    {
+        "id": 32,
+        "name": "格林",
+        "position": "大前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202502/22/185d7a42.png"
+    },
+    {
+        "id": 17,
+        "name": "伊森",
+        "position": "前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/10/29aa29d7.png"
+    },
+    {
+        "id": 28,
+        "name": "申京",
+        "position": "中锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202412/05/26904f9c.png"
+    },
+    {
+        "id": 8,
+        "name": "泰特",
+        "position": "小前锋",
+        "team": "rockets",
+        "teamName": "休斯顿火箭",
+        "image": "https://file.qiumiwu.com/player/202410/09/0de4911d.png"
+    },
+    {
+        "id": 19,
+        "name": "贝林格",
+        "position": "中锋",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202506/26/c795101a.png"
+    },
+    {
+        "id": 44,
+        "name": "齐卡斯基",
+        "position": "中锋",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202506/03/b1582c24.png"
+    },
+    {
+        "id": 77,
+        "name": "海兰德",
+        "position": "控卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202410/10/ca560a50.png"
+    },
+    {
+        "id": 4,
+        "name": "迪林厄姆",
+        "position": "后卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202505/01/caa2aa41.png"
+    },
+    {
+        "id": 13,
+        "name": "纽顿",
+        "position": "后卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202410/13/f4d695a3.png"
+    },
+    {
+        "id": 22,
+        "name": "克拉克",
+        "position": "后卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202502/21/b2664ec2.png"
+    },
+    {
+        "id": 14,
+        "name": "爱德华兹",
+        "position": "中锋",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202507/04/19dd36e9.png"
+    },
+    {
+        "id": 0,
+        "name": "迪温琴佐",
+        "position": "分卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202410/17/8075f05e.png"
+    },
+    {
+        "id": 30,
+        "name": "兰德尔",
+        "position": "大前锋",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202411/26/330c8d6f.png"
+    },
+    {
+        "id": 7,
+        "name": "英格尔斯",
+        "position": "分卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202410/09/051e737b.png"
+    },
+    {
+        "id": 0,
+        "name": "香农",
+        "position": "后卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202411/06/8eb8a1ba.png"
+    },
+    {
+        "id": 33,
+        "name": "米勒",
+        "position": "前锋",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202410/10/c41c864f.png"
+    },
+    {
+        "id": 5,
+        "name": "爱德华兹",
+        "position": "分卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202410/10/3b8cd5a3.png"
+    },
+    {
+        "id": 10,
+        "name": "康利",
+        "position": "控卫",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202410/09/137cbc32.png"
+    },
+    {
+        "id": 27,
+        "name": "戈贝尔",
+        "position": "中锋",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202507/16/71fef8a8.png"
+    },
+    {
+        "id": 3,
+        "name": "麦克丹尼尔斯",
+        "position": "大前锋",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202412/05/89b31831.png"
+    },
+    {
+        "id": 11,
+        "name": "里德",
+        "position": "中锋",
+        "team": "timberwolves",
+        "teamName": "明尼苏达森林狼",
+        "image": "https://file.qiumiwu.com/player/202410/10/e4173cd2.png"
+    },
+    {
+        "id": 22,
+        "name": "图希",
+        "position": "前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202506/27/391d5d5e.png"
+    },
+    {
+        "id": 3,
+        "name": "理查德",
+        "position": "后卫",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202506/27/67dacb3a.png"
+    },
+    {
+        "id": 44,
+        "name": "杰克逊·罗",
+        "position": "前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/18/9a38f653.png"
+    },
+    {
+        "id": 12,
+        "name": "布拉克斯顿·基",
+        "position": "前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202404/17/8f7296b0.png"
+    },
+    {
+        "id": 32,
+        "name": "T·戴维斯",
+        "position": "前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/10/1746554c.png"
+    },
+    {
+        "id": 1,
+        "name": "阿姆斯特朗",
+        "position": "后卫",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202507/12/5b44eda7.png"
+    },
+    {
+        "id": 31,
+        "name": "诺克斯",
+        "position": "前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/09/d30fff34.png"
+    },
+    {
+        "id": 10,
+        "name": "巴特勒",
+        "position": "小前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202503/02/d495c2c0.png"
+    },
+    {
+        "id": 7,
+        "name": "希尔德",
+        "position": "分卫",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/09/a02f2030.png"
+    },
+    {
+        "id": 21,
+        "name": "波斯特",
+        "position": "中锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/05/b5ef2125.png"
+    },
+    {
+        "id": 30,
+        "name": "库里",
+        "position": "控卫",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/09/614658c5.png"
+    },
+    {
+        "id": 61,
+        "name": "斯潘瑟",
+        "position": "后卫",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/10/55712bbc.png"
+    },
+    {
+        "id": 15,
+        "name": "桑托斯",
+        "position": "前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202206/30/f04fbe.png"
+    },
+    {
+        "id": 0,
+        "name": "佩顿二世",
+        "position": "分卫",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202411/26/7234fe.png"
+    },
+    {
+        "id": 2,
+        "name": "波杰姆斯基",
+        "position": "后卫",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/10/465161d4.png"
+    },
+    {
+        "id": 23,
+        "name": "格林",
+        "position": "大前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/09/1c2fa1d5.png"
+    },
+    {
+        "id": 0,
+        "name": "库明加",
+        "position": "大前锋",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202504/12/a5b372bc.png"
+    },
+    {
+        "id": 4,
+        "name": "穆迪",
+        "position": "分卫",
+        "team": "warriors",
+        "teamName": "金州勇士",
+        "image": "https://file.qiumiwu.com/player/202410/10/42e2916c.png"
+    },
+    {
+        "id": 2,
+        "name": "哈珀",
+        "position": "后卫",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202505/14/08eeaf1c.png"
+    },
+    {
+        "id": 40,
+        "name": "科内特",
+        "position": "中锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/01/654ce7bc.png"
+    },
+    {
+        "id": 13,
+        "name": "奥利尼克",
+        "position": "大前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202502/14/89efb001.png"
+    },
+    {
+        "id": 43,
+        "name": "沃特斯三世",
+        "position": "前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/10/11442449.png"
+    },
+    {
+        "id": 11,
+        "name": "布莱恩特",
+        "position": "前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202505/29/059e02d8.png"
+    },
+    {
+        "id": 11,
+        "name": "麦克劳林",
+        "position": "控卫",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202502/06/a0a064cd.png"
+    },
+    {
+        "id": 18,
+        "name": "比永博",
+        "position": "中锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202411/26/f236b4fc.png"
+    },
+    {
+        "id": 4,
+        "name": "福克斯",
+        "position": "控卫",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202502/06/eb1ae9bf.png"
+    },
+    {
+        "id": 7,
+        "name": "杜克",
+        "position": "后卫",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/10/bd7b5592.png"
+    },
+    {
+        "id": 27,
+        "name": "米尼克斯",
+        "position": "前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/21/25b80c8b.png"
+    },
+    {
+        "id": 40,
+        "name": "巴恩斯",
+        "position": "小前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/17/90886151.png"
+    },
+    {
+        "id": 5,
+        "name": "卡斯尔",
+        "position": "后卫",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/13/3b30e490.png"
+    },
+    {
+        "id": 55,
+        "name": "H.英格拉姆",
+        "position": "前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/13/35772e69.png"
+    },
+    {
+        "id": 0,
+        "name": "约翰逊",
+        "position": "小前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/10/48b26e80.png"
+    },
+    {
+        "id": 1,
+        "name": "文班亚马",
+        "position": "中锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202501/30/f6b8d790.png"
+    },
+    {
+        "id": 30,
+        "name": "尚帕尼",
+        "position": "前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/10/7573567e.png"
+    },
+    {
+        "id": 10,
+        "name": "索汉",
+        "position": "前锋",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202410/10/674fdbde.png"
+    },
+    {
+        "id": 24,
+        "name": "瓦塞尔",
+        "position": "分卫",
+        "team": "spurs",
+        "teamName": "圣安东尼奥马刺",
+        "image": "https://file.qiumiwu.com/player/202502/23/0b14d019.png"
+    },
+    {
+        "id": 5,
+        "name": "威廉姆斯",
+        "position": "中锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/10/ec9cd1e7.png"
+    },
+    {
+        "id": 20,
+        "name": "弗莱明",
+        "position": "前锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202506/27/c1ace386.png"
+    },
+    {
+        "id": 40,
+        "name": "N·海耶斯",
+        "position": "前锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202505/13/45c26df6.png"
+    },
+    {
+        "id": 22,
+        "name": "亨特利",
+        "position": "前锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202507/04/7c42bc78.png"
+    },
+    {
+        "id": 12,
+        "name": "利弗斯",
+        "position": "大前锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202404/17/92735bb0.png"
+    },
+    {
+        "id": 30,
+        "name": "古德温",
+        "position": "后卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/10/2cbefa7c.png"
+    },
+    {
+        "id": 9,
+        "name": "马鲁阿奇",
+        "position": "中锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202505/28/39c02a35.png"
+    },
+    {
+        "id": 0,
+        "name": "布雷亚",
+        "position": "后卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202506/27/8b22fce2.png"
+    },
+    {
+        "id": 12,
+        "name": "巴特勒",
+        "position": "分卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202502/15/22e23b9f.png"
+    },
+    {
+        "id": 4,
+        "name": "格林",
+        "position": "分卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202501/14/d52ff311.png"
+    },
+    {
+        "id": 9,
+        "name": "布鲁克斯",
+        "position": "小前锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/09/2adce172.png"
+    },
+    {
+        "id": 4,
+        "name": "伊戈达罗",
+        "position": "中锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/13/4366bb67.png"
+    },
+    {
+        "id": 2,
+        "name": "理查兹",
+        "position": "中锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202502/23/879b3b05.png"
+    },
+    {
+        "id": 12,
+        "name": "吉列斯皮",
+        "position": "后卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202504/20/f130d5e8.png"
+    },
+    {
+        "id": 0,
+        "name": "邓恩",
+        "position": "前锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/13/98f5138e.png"
+    },
+    {
+        "id": 23,
+        "name": "莫里斯",
+        "position": "控卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/09/97f5a6c5.png"
+    },
+    {
+        "id": 0,
+        "name": "奥尼尔",
+        "position": "大前锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/09/ed2b3844.png"
+    },
+    {
+        "id": 10,
+        "name": "达米恩·李",
+        "position": "分卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202501/29/f5b98c35.png"
+    },
+    {
+        "id": 8,
+        "name": "阿伦",
+        "position": "分卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/09/427169.png"
+    },
+    {
+        "id": 11,
+        "name": "波尔",
+        "position": "中锋",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202410/10/b886dcf4.png"
+    },
+    {
+        "id": 1,
+        "name": "布克",
+        "position": "分卫",
+        "team": "suns",
+        "teamName": "菲尼克斯太阳",
+        "image": "https://file.qiumiwu.com/player/202501/21/cbd4fa89.png"
+    },
+    {
+        "id": 1,
+        "name": "拉塞尔",
+        "position": "控卫",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202504/27/214b21c1.png"
+    },
+    {
+        "id": 5,
+        "name": "迈尔斯·凯利",
+        "position": "后卫",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202506/30/52afafef.png"
+    },
+    {
+        "id": 32,
+        "name": "弗拉格",
+        "position": "前锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202503/08/1523741b.png"
+    },
+    {
+        "id": 23,
+        "name": "琼斯",
+        "position": "大前锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/10/f51dda74.png"
+    },
+    {
+        "id": 0,
+        "name": "克里斯蒂",
+        "position": "后卫",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202502/14/78d979e8.png"
+    },
+    {
+        "id": 16,
+        "name": "马丁",
+        "position": "小前锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202502/15/94e7dc92.png"
+    },
+    {
+        "id": 3,
+        "name": "戴维斯",
+        "position": "大前锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202502/14/150216ba.png"
+    },
+    {
+        "id": 20,
+        "name": "爱德华兹",
+        "position": "小前锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/10/27ab6d2c.png"
+    },
+    {
+        "id": 8,
+        "name": "普罗斯珀",
+        "position": "前锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202502/23/c4c7759e.png"
+    },
+    {
+        "id": 10,
+        "name": "威廉姆斯",
+        "position": "后卫",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/10/dd620acb.png"
+    },
+    {
+        "id": 31,
+        "name": "汤普森",
+        "position": "分卫",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/09/0ebd0ed5.png"
+    },
+    {
+        "id": 13,
+        "name": "马绍尔",
+        "position": "小前锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/10/a6b2b4a1.png"
+    },
+    {
+        "id": 25,
+        "name": "华盛顿",
+        "position": "大前锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/10/3245e633.png"
+    },
+    {
+        "id": 21,
+        "name": "加福德",
+        "position": "中锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/10/3d5489c1.png"
+    },
+    {
+        "id": 11,
+        "name": "欧文",
+        "position": "控卫",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/09/72e1fef2.png"
+    },
+    {
+        "id": 1,
+        "name": "哈迪",
+        "position": "后卫",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/10/b8cb522c.png"
+    },
+    {
+        "id": 0,
+        "name": "埃克萨姆",
+        "position": "后卫",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/09/b991861b.png"
+    },
+    {
+        "id": 7,
+        "name": "鲍威尔",
+        "position": "中锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202410/09/1a4baf.png"
+    },
+    {
+        "id": 2,
+        "name": "莱夫利",
+        "position": "中锋",
+        "team": "mavericks",
+        "teamName": "达拉斯独行侠",
+        "image": "https://file.qiumiwu.com/player/202507/25/6da00c7f.png"
+    },
+    {
+        "id": 54,
+        "name": "Y·泰勒",
+        "position": "后卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202507/03/e07e961a.png"
+    },
+    {
+        "id": 12,
+        "name": "拉拉维亚",
+        "position": "前锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202502/15/7bafcdb1.png"
+    },
+    {
+        "id": 5,
+        "name": "艾顿",
+        "position": "中锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202410/09/28b771ec.png"
+    },
+    {
+        "id": 36,
+        "name": "斯玛特",
+        "position": "控卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202502/14/d86387f2.png"
+    },
+    {
+        "id": 99,
+        "name": "RJ·戴维斯",
+        "position": "后卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202506/27/c81b4307.png"
+    },
+    {
+        "id": 98,
+        "name": "狄克逊",
+        "position": "前锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202506/27/4d85126a.png"
+    },
+    {
+        "id": 30,
+        "name": "马农",
+        "position": "后卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202507/06/dc2fa1e2.png"
+    },
+    {
+        "id": 1,
+        "name": "蒂耶罗",
+        "position": "前锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202506/03/92ac789c.png"
+    },
+    {
+        "id": 27,
+        "name": "莱恩",
+        "position": "中锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202410/17/582b6d3a.png"
+    },
+    {
+        "id": 14,
+        "name": "克勒贝尔",
+        "position": "大前锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202502/14/990c7df5.png"
+    },
+    {
+        "id": 4,
+        "name": "克内克特",
+        "position": "后卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202507/28/d169eb.png"
+    },
+    {
+        "id": 77,
+        "name": "东契奇",
+        "position": "控卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202502/14/2f167385.png"
+    },
+    {
+        "id": 88,
+        "name": "莫里斯",
+        "position": "大前锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202502/14/d99786e6.png"
+    },
+    {
+        "id": 10,
+        "name": "科洛科",
+        "position": "中锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202410/10/56b91077.png"
+    },
+    {
+        "id": 9,
+        "name": "布朗尼",
+        "position": "后卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202412/16/e9ad19ca.png"
+    },
+    {
+        "id": 7,
+        "name": "文森特",
+        "position": "控卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202412/29/8e8e8281.png"
+    },
+    {
+        "id": 11,
+        "name": "海斯",
+        "position": "中锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202410/10/df2e4032.png"
+    },
+    {
+        "id": 23,
+        "name": "詹姆斯",
+        "position": "小前锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202410/09/3aabcdf5.png"
+    },
+    {
+        "id": 2,
+        "name": "范德比尔特",
+        "position": "大前锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202410/09/809bd1c1.png"
+    },
+    {
+        "id": 28,
+        "name": "八村塁",
+        "position": "大前锋",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202410/10/b23e40fa.png"
+    },
+    {
+        "id": 15,
+        "name": "里夫斯",
+        "position": "分卫",
+        "team": "lakers",
+        "teamName": "洛杉矶湖人",
+        "image": "https://file.qiumiwu.com/player/202410/10/d1f9b640.png"
+    },
+    {
+        "id": 14,
+        "name": "尼德豪泽",
+        "position": "中锋",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202506/26/238fa3a6.png"
+    },
+    {
+        "id": 4,
+        "name": "桑德斯",
+        "position": "后卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202506/27/cb557a6e.png"
+    },
+    {
+        "id": 11,
+        "name": "洛佩兹",
+        "position": "中锋",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/09/efcc85a7.png"
+    },
+    {
+        "id": 20,
+        "name": "科林斯",
+        "position": "大前锋",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202411/18/92c7ed90.png"
+    },
+    {
+        "id": 3,
+        "name": "比尔",
+        "position": "分卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202412/28/f8c54587.png"
+    },
+    {
+        "id": 14,
+        "name": "华盛顿",
+        "position": "后卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/10/e94a53f7.png"
+    },
+    {
+        "id": 3,
+        "name": "保罗",
+        "position": "控卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202504/19/ee4c9691.png"
+    },
+    {
+        "id": 23,
+        "name": "鲍德温",
+        "position": "前锋",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/10/8346adb5.png"
+    },
+    {
+        "id": 25,
+        "name": "西蒙斯",
+        "position": "控卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202502/14/ad9b8d96.png"
+    },
+    {
+        "id": 10,
+        "name": "博格达诺维奇",
+        "position": "分卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202502/14/b14920d9.png"
+    },
+    {
+        "id": 88,
+        "name": "米尔斯",
+        "position": "控卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202502/14/e794ce87.png"
+    },
+    {
+        "id": 12,
+        "name": "克里斯蒂",
+        "position": "后卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/05/e956a301.png"
+    },
+    {
+        "id": 9,
+        "name": "弗劳尔斯",
+        "position": "后卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/18/2fb0d4d4.png"
+    },
+    {
+        "id": 8,
+        "name": "邓恩",
+        "position": "后卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/09/a0e86e72.png"
+    },
+    {
+        "id": 55,
+        "name": "琼斯",
+        "position": "小前锋",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/09/4c770fb1.png"
+    },
+    {
+        "id": 33,
+        "name": "巴图姆",
+        "position": "大前锋",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/09/d9d9c327.png"
+    },
+    {
+        "id": 1,
+        "name": "哈登",
+        "position": "分卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/09/e352db33.png"
+    },
+    {
+        "id": 21,
+        "name": "布朗",
+        "position": "后卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/10/e7c0f3c4.png"
+    },
+    {
+        "id": 7,
+        "name": "科菲",
+        "position": "分卫",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/10/2a482af2.png"
+    },
+    {
+        "id": 2,
+        "name": "伦纳德",
+        "position": "小前锋",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/09/9d137e01.png"
+    },
+    {
+        "id": 40,
+        "name": "祖巴茨",
+        "position": "中锋",
+        "team": "clippers",
+        "teamName": "洛杉矶快船",
+        "image": "https://file.qiumiwu.com/player/202410/09/544af749.png"
+    },
+    {
+        "id": 19,
+        "name": "贝利",
+        "position": "后卫",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202505/27/6c8f2bfc.png"
+    },
+    {
+        "id": 13,
+        "name": "克莱顿",
+        "position": "后卫",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202506/26/ef651610.png"
+    },
+    {
+        "id": 17,
+        "name": "通杰",
+        "position": "前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202506/27/937b40f7.png"
+    },
+    {
+        "id": 11,
+        "name": "努尔基奇",
+        "position": "中锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202502/14/ee20b0b6.png"
+    },
+    {
+        "id": 20,
+        "name": "李凯尔",
+        "position": "小前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202502/14/0b0b5411.png"
+    },
+    {
+        "id": 42,
+        "name": "乐福",
+        "position": "大前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/17/52182cbb.png"
+    },
+    {
+        "id": 99,
+        "name": "马丁",
+        "position": "前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202502/23/d47bef4a.png"
+    },
+    {
+        "id": 16,
+        "name": "哈克斯",
+        "position": "后卫",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202501/22/8879854b.png"
+    },
+    {
+        "id": 28,
+        "name": "森萨博",
+        "position": "前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/10/6087ffef.png"
+    },
+    {
+        "id": 19,
+        "name": "米哈伊柳克",
+        "position": "分卫",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/09/c30bef3e.png"
+    },
+    {
+        "id": 34,
+        "name": "希布維",
+        "position": "中锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/10/de0ed05c.png"
+    },
+    {
+        "id": 13,
+        "name": "科利尔",
+        "position": "后卫",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/05/135567e4.png"
+    },
+    {
+        "id": 22,
+        "name": "菲利波夫斯基",
+        "position": "前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/05/174cabcf.png"
+    },
+    {
+        "id": 5,
+        "name": "威廉姆斯",
+        "position": "前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/05/f72c12f8.png"
+    },
+    {
+        "id": 3,
+        "name": "乔治",
+        "position": "后卫",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202411/03/3993fce3.png"
+    },
+    {
+        "id": 0,
+        "name": "亨德里克斯",
+        "position": "前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/10/5cea9a74.png"
+    },
+    {
+        "id": 25,
+        "name": "波特",
+        "position": "中锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202505/14/da678095.png"
+    },
+    {
+        "id": 24,
+        "name": "凯斯勒",
+        "position": "中锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/10/b4c1ee57.png"
+    },
+    {
+        "id": 23,
+        "name": "马尔卡宁",
+        "position": "大前锋",
+        "team": "jazz",
+        "teamName": "犹他爵士",
+        "image": "https://file.qiumiwu.com/player/202410/09/0f44b2a7.png"
+    },
+    {
+        "id": 24,
+        "name": "查基·赫本",
+        "position": "后卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202506/30/d4db401d.png"
+    },
+    {
+        "id": 12,
+        "name": "博伊尔斯",
+        "position": "前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202505/29/2b904b2f.png"
+    },
+    {
+        "id": 45,
+        "name": "罗迪",
+        "position": "前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/10/8d19f6b2.png"
+    },
+    {
+        "id": 55,
+        "name": "马丁",
+        "position": "后卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202506/27/6318205b.png"
+    },
+    {
+        "id": 54,
+        "name": "马库凯拉什维利",
+        "position": "大前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/10/5aa135.png"
+    },
+    {
+        "id": 18,
+        "name": "卡斯尔顿",
+        "position": "中锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202411/19/0e15572b.png"
+    },
+    {
+        "id": 77,
+        "name": "巴特尔",
+        "position": "前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/21/1195a809.png"
+    },
+    {
+        "id": 3,
+        "name": "英格拉姆",
+        "position": "小前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202503/02/9ebaf273.png"
+    },
+    {
+        "id": 0,
+        "name": "劳森",
+        "position": "后卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202503/03/eebf6c7b.png"
+    },
+    {
+        "id": 22,
+        "name": "乔姆奇",
+        "position": "中锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/13/9eefbd69.png"
+    },
+    {
+        "id": 2,
+        "name": "莫博",
+        "position": "前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/13/b94f4d84.png"
+    },
+    {
+        "id": 23,
+        "name": "谢德",
+        "position": "后卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202411/14/69edd3db.png"
+    },
+    {
+        "id": 14,
+        "name": "沃尔特",
+        "position": "后卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202411/06/e4b009d1.png"
+    },
+    {
+        "id": 17,
+        "name": "坦普尔",
+        "position": "小前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202411/18/f0319d82.png"
+    },
+    {
+        "id": 30,
+        "name": "阿巴基",
+        "position": "后卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/10/8b2d3707.png"
+    },
+    {
+        "id": 9,
+        "name": "巴雷特",
+        "position": "分卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/10/e1977509.png"
+    },
+    {
+        "id": 5,
+        "name": "奎克利",
+        "position": "分卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/10/e548cf.png"
+    },
+    {
+        "id": 1,
+        "name": "迪克",
+        "position": "后卫",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/10/f11d1e3d.png"
+    },
+    {
+        "id": 19,
+        "name": "珀尔特尔",
+        "position": "中锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/09/5499d518.png"
+    },
+    {
+        "id": 4,
+        "name": "巴恩斯",
+        "position": "小前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/10/b001440d.png"
+    },
+    {
+        "id": 25,
+        "name": "布歇",
+        "position": "大前锋",
+        "team": "raptors",
+        "teamName": "多伦多猛龙",
+        "image": "https://file.qiumiwu.com/player/202410/09/d4a8ca.png"
+    },
+    {
+        "id": 9,
+        "name": "格兰特",
+        "position": "大前锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/09/e855a8b1.png"
+    },
+    {
+        "id": 8,
+        "name": "阿夫迪亚",
+        "position": "大前锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/10/a4a9e572.png"
+    },
+    {
+        "id": 24,
+        "name": "默里",
+        "position": "小前锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202504/04/b27165b1.png"
+    },
+    {
+        "id": 21,
+        "name": "鲁珀特",
+        "position": "小前锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202411/11/9fdc6d1a.png"
+    },
+    {
+        "id": 33,
+        "name": "卡马拉",
+        "position": "小前锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/10/c49f7e1f.png"
+    },
+    {
+        "id": 0,
+        "name": "亨德森",
+        "position": "控卫",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/10/90cdf028.png"
+    },
+    {
+        "id": 14,
+        "name": "韦斯利",
+        "position": "分卫",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/10/32ae9b.png"
+    },
+    {
+        "id": 2,
+        "name": "K·乐福",
+        "position": "后卫",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202506/27/d8b2fda9.png"
+    },
+    {
+        "id": 16,
+        "name": "杨瀚森",
+        "position": "中锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202507/12/7b2bd7df.png"
+    },
+    {
+        "id": 5,
+        "name": "霍勒迪",
+        "position": "控卫",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/01/d88cf4c1.png"
+    },
+    {
+        "id": 0,
+        "name": "利拉德",
+        "position": "控卫",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/09/81316274.png"
+    },
+    {
+        "id": 91,
+        "name": "西索科",
+        "position": "后卫",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202504/12/3b534f39.png"
+    },
+    {
+        "id": 23,
+        "name": "克林根",
+        "position": "中锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/13/b1c99b9b.png"
+    },
+    {
+        "id": 35,
+        "name": "威廉姆斯",
+        "position": "中锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202410/09/856250f0.png"
+    },
+    {
+        "id": 26,
+        "name": "里斯",
+        "position": "中锋",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202310/17/c1bcdc08.png"
+    },
+    {
+        "id": 4,
+        "name": "赛布尔",
+        "position": "分卫",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202411/27/16bd2e40.png"
+    },
+    {
+        "id": 17,
+        "name": "夏普",
+        "position": "分卫",
+        "team": "blazers",
+        "teamName": "波特兰开拓者",
+        "image": "https://file.qiumiwu.com/player/202504/04/c17a6071.png"
+    },
+    {
+        "id": 25,
+        "name": "雅库西奥尼斯",
+        "position": "后卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202505/30/573b4002.png"
+    },
+    {
+        "id": 50,
+        "name": "戈尔金",
+        "position": "中锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202506/27/5cd5ecdb.png"
+    },
+    {
+        "id": 24,
+        "name": "鲍威尔",
+        "position": "后卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/09/0080ed.png"
+    },
+    {
+        "id": 19,
+        "name": "丰泰基奥",
+        "position": "前锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/10/74aa8125.png"
+    },
+    {
+        "id": 75,
+        "name": "M-加德纳",
+        "position": "前锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202506/21/5aa9682c.png"
+    },
+    {
+        "id": 22,
+        "name": "维金斯",
+        "position": "小前锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202502/14/b13828d8.png"
+    },
+    {
+        "id": 45,
+        "name": "米切尔",
+        "position": "控卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202502/15/710a481d.png"
+    },
+    {
+        "id": 16,
+        "name": "约翰逊",
+        "position": "前锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/14/08c40dcf.png"
+    },
+    {
+        "id": 12,
+        "name": "史密斯",
+        "position": "后卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/10/791b8228.png"
+    },
+    {
+        "id": 18,
+        "name": "伯克斯",
+        "position": "分卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/09/c73e31b6.png"
+    },
+    {
+        "id": 9,
+        "name": "拉尔森",
+        "position": "后卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/13/f034a0e8.png"
+    },
+    {
+        "id": 7,
+        "name": "韦尔",
+        "position": "中锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/13/b101f5cf.png"
+    },
+    {
+        "id": 2,
+        "name": "罗齐尔",
+        "position": "分卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/09/ebd0533d.png"
+    },
+    {
+        "id": 11,
+        "name": "哈克斯",
+        "position": "后卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/10/8eab1e72.png"
+    },
+    {
+        "id": 13,
+        "name": "阿德巴约",
+        "position": "中锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/09/2dba721a.png"
+    },
+    {
+        "id": 14,
+        "name": "希罗",
+        "position": "控卫",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/10/43fe5ad9.png"
+    },
+    {
+        "id": 24,
+        "name": "海史密斯",
+        "position": "前锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202505/14/ff96a64d.png"
+    },
+    {
+        "id": 5,
+        "name": "约维奇",
+        "position": "前锋",
+        "team": "heat",
+        "teamName": "迈阿密热火",
+        "image": "https://file.qiumiwu.com/player/202410/10/72219d5c.png"
+    },
+    {
+        "id": 14,
+        "name": "萨迪克·贝",
+        "position": "小前锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/d38cb951.png"
+    },
+    {
+        "id": 13,
+        "name": "普尔",
+        "position": "分卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/5627bfb3.png"
+    },
+    {
+        "id": 0,
+        "name": "费尔斯",
+        "position": "后卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202506/11/2a5533ee.png"
+    },
+    {
+        "id": 4,
+        "name": "迪金森",
+        "position": "中锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202506/30/6f0520ad.png"
+    },
+    {
+        "id": 5,
+        "name": "鲁尼",
+        "position": "前锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/09/73c1a8c2.png"
+    },
+    {
+        "id": 23,
+        "name": "亚历山大",
+        "position": "后卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/18/9c184a84.png"
+    },
+    {
+        "id": 22,
+        "name": "奎因",
+        "position": "中锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202505/30/1758c0aa.png"
+    },
+    {
+        "id": 14,
+        "name": "皮维",
+        "position": "后卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202506/27/bd21f933.png"
+    },
+    {
+        "id": 4,
+        "name": "佩顿",
+        "position": "后卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202507/08/0396386c.png"
+    },
+    {
+        "id": 35,
+        "name": "凯利",
+        "position": "中锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202502/13/87461e9c.png"
+    },
+    {
+        "id": 0,
+        "name": "布鲁克斯",
+        "position": "小前锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202501/15/f01e4092.png"
+    },
+    {
+        "id": 11,
+        "name": "波士顿",
+        "position": "分卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202411/19/f2564da7.png"
+    },
+    {
+        "id": 8,
+        "name": "凯恩",
+        "position": "前锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/de21045a.png"
+    },
+    {
+        "id": 17,
+        "name": "马特科维奇",
+        "position": "中锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/21/4c04854a.png"
+    },
+    {
+        "id": 21,
+        "name": "米西",
+        "position": "中锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/13/f4cf094a.png"
+    },
+    {
+        "id": 2,
+        "name": "琼斯",
+        "position": "小前锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/f164ea7d.png"
+    },
+    {
+        "id": 5,
+        "name": "穆雷",
+        "position": "分卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/09/c63349a3.png"
+    },
+    {
+        "id": 50,
+        "name": "厄尔",
+        "position": "前锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/3f473d54.png"
+    },
+    {
+        "id": 24,
+        "name": "霍金斯",
+        "position": "后卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/5e8ef14f.png"
+    },
+    {
+        "id": 15,
+        "name": "阿尔瓦拉多",
+        "position": "控卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/3ef3d40c.png"
+    },
+    {
+        "id": 1,
+        "name": "锡安",
+        "position": "大前锋",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/e242b963.png"
+    },
+    {
+        "id": 25,
+        "name": "墨菲三世",
+        "position": "分卫",
+        "team": "pelicans",
+        "teamName": "新奥尔良鹈鹕",
+        "image": "https://file.qiumiwu.com/player/202410/10/e5558d3f.png"
+    },
+    {
+        "id": 12,
+        "name": "沃特福德",
+        "position": "大前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/10/9a79e960.png"
+    },
+    {
+        "id": 41,
+        "name": "巴洛",
+        "position": "前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/10/c55b794a.png"
+    },
+    {
+        "id": 0,
+        "name": "伊戈尔·米利契奇",
+        "position": "前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202506/11/2a5533ee.png"
+    },
+    {
+        "id": 2,
+        "name": "科尔",
+        "position": "前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/10/f164ea7d.png"
+    },
+    {
+        "id": 10,
+        "name": "科尔",
+        "position": "前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://spdc.jsty.com/api/player/avatar/83552737757"
+    },
+    {
+        "id": 34,
+        "name": "沃克",
+        "position": "前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/10/3a19a336.png"
+    },
+    {
+        "id": 77,
+        "name": "埃奇科姆",
+        "position": "后卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202505/27/e7fcb736.png"
+    },
+    {
+        "id": 22,
+        "name": "布鲁姆",
+        "position": "前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202506/27/5ad66b86.png"
+    },
+    {
+        "id": 5,
+        "name": "格莱姆斯",
+        "position": "分卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202502/15/c142df08.png"
+    },
+    {
+        "id": 17,
+        "name": "席菲诺",
+        "position": "后卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202501/14/046292c7.png"
+    },
+    {
+        "id": 1,
+        "name": "德拉蒙德",
+        "position": "中锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/09/5dd0717a.png"
+    },
+    {
+        "id": 30,
+        "name": "博纳",
+        "position": "中锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/13/b7fcc22b.png"
+    },
+    {
+        "id": 11,
+        "name": "道丁",
+        "position": "后卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/10/94cd1c95.png"
+    },
+    {
+        "id": 19,
+        "name": "J·爱德华兹",
+        "position": "前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/29/060325dc.png"
+    },
+    {
+        "id": 20,
+        "name": "麦凯恩",
+        "position": "后卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/15/03833c6c.png"
+    },
+    {
+        "id": 8,
+        "name": "乔治",
+        "position": "前锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/09/f61ab772.png"
+    },
+    {
+        "id": 23,
+        "name": "戈登",
+        "position": "分卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/09/e0d05ab5.png"
+    },
+    {
+        "id": 7,
+        "name": "洛瑞",
+        "position": "控卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/09/8cee6936.png"
+    },
+    {
+        "id": 9,
+        "name": "乌布雷",
+        "position": "分卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/09/b60d5591.png"
+    },
+    {
+        "id": 21,
+        "name": "恩比德",
+        "position": "中锋",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/09/9024868f.png"
+    },
+    {
+        "id": 0,
+        "name": "马克西",
+        "position": "控卫",
+        "team": "ers",
+        "teamName": "费城76人",
+        "image": "https://file.qiumiwu.com/player/202410/10/cc44d5f5.png"
+    },
+    {
+        "id": 7,
+        "name": "莱利",
+        "position": "后卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202505/30/4c48297c.png"
+    },
+    {
+        "id": 1,
+        "name": "沃特金斯",
+        "position": "后卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202506/27/d30ca81e.png"
+    },
+    {
+        "id": 33,
+        "name": "琼斯",
+        "position": "后卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/13/220643f8.png"
+    },
+    {
+        "id": 1,
+        "name": "惠特莫尔",
+        "position": "前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/10/2c147b56.png"
+    },
+    {
+        "id": 22,
+        "name": "布拉纳姆",
+        "position": "后卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/10/e41e96a1.png"
+    },
+    {
+        "id": 35,
+        "name": "巴格利",
+        "position": "前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202503/02/e8465d9f.png"
+    },
+    {
+        "id": 12,
+        "name": "T-约翰逊",
+        "position": "后卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202505/28/5d403b66.png"
+    },
+    {
+        "id": 3,
+        "name": "麦科勒姆",
+        "position": "分卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/09/20cceabb.png"
+    },
+    {
+        "id": 21,
+        "name": "索尔",
+        "position": "前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202503/11/d61cd0a4.png"
+    },
+    {
+        "id": 4,
+        "name": "马丁",
+        "position": "后卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202503/09/2aa75a6d.png"
+    },
+    {
+        "id": 5,
+        "name": "AJ·约翰逊",
+        "position": "后卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202503/06/ef1adbde.png"
+    },
+    {
+        "id": 32,
+        "name": "米德尔顿",
+        "position": "小前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202502/14/12dc2ac7.png"
+    },
+    {
+        "id": 8,
+        "name": "卡灵顿",
+        "position": "后卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/13/492de530.png"
+    },
+    {
+        "id": 20,
+        "name": "萨尔",
+        "position": "大前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/13/47ead489.png"
+    },
+    {
+        "id": 15,
+        "name": "布罗格登",
+        "position": "控卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/09/d6279481.png"
+    },
+    {
+        "id": 9,
+        "name": "尚帕尼",
+        "position": "小前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/10/303fead0.png"
+    },
+    {
+        "id": 18,
+        "name": "乔治",
+        "position": "前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/13/e86d965a.png"
+    },
+    {
+        "id": 0,
+        "name": "武克切维奇",
+        "position": "大前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/10/2086e3ee.png"
+    },
+    {
+        "id": 0,
+        "name": "库利巴利",
+        "position": "分卫",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/10/72807aa3.png"
+    },
+    {
+        "id": 24,
+        "name": "基斯珀特",
+        "position": "小前锋",
+        "team": "wizards",
+        "teamName": "华盛顿奇才",
+        "image": "https://file.qiumiwu.com/player/202410/10/f9bd9c71.png"
+    },
+    {
+        "id": 7,
+        "name": "康·克努佩尔",
+        "position": "后卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202505/27/8aadbb0b.png"
+    },
+    {
+        "id": 33,
+        "name": "麦克尼利",
+        "position": "后卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202505/28/ec77719b.png"
+    },
+    {
+        "id": 4,
+        "name": "X·詹姆斯",
+        "position": "后卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202506/27/b8dabc12.png"
+    },
+    {
+        "id": 11,
+        "name": "卡尔克布伦纳",
+        "position": "中锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202506/27/e6c41f1f.png"
+    },
+    {
+        "id": 13,
+        "name": "彼得森",
+        "position": "前锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/02/3599d3.png"
+    },
+    {
+        "id": 12,
+        "name": "里维斯",
+        "position": "后卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/13/6c03135c.png"
+    },
+    {
+        "id": 30,
+        "name": "库里",
+        "position": "分卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/09/12e26be7.png"
+    },
+    {
+        "id": 24,
+        "name": "康诺顿",
+        "position": "分卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/09/6e2aecc0.png"
+    },
+    {
+        "id": 26,
+        "name": "丁威迪",
+        "position": "控卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/09/1fa4f1df.png"
+    },
+    {
+        "id": 30,
+        "name": "西姆斯",
+        "position": "后卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202504/10/55d1cc46.png"
+    },
+    {
+        "id": 22,
+        "name": "普拉姆利",
+        "position": "中锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/09/7a55b412.png"
+    },
+    {
+        "id": 28,
+        "name": "加勒特",
+        "position": "后卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/10/a0572178.png"
+    },
+    {
+        "id": 3,
+        "name": "杰弗里斯",
+        "position": "分卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202411/27/1a3d9baa.png"
+    },
+    {
+        "id": 10,
+        "name": "格林",
+        "position": "分卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/10/ca986ef2.png"
+    },
+    {
+        "id": 14,
+        "name": "迪亚巴特",
+        "position": "前锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202506/06/89978658.png"
+    },
+    {
+        "id": 31,
+        "name": "萨隆",
+        "position": "前锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/05/714054ba.png"
+    },
+    {
+        "id": 25,
+        "name": "辛普森",
+        "position": "后卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/05/7df920bf.png"
+    },
+    {
+        "id": 67,
+        "name": "吉布森",
+        "position": "前锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/09/e08441e8.png"
+    },
+    {
+        "id": 2,
+        "name": "威廉姆斯",
+        "position": "大前锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202507/17/3842d1d9.png"
+    },
+    {
+        "id": 23,
+        "name": "曼恩",
+        "position": "控卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/10/26649164.png"
+    },
+    {
+        "id": 8,
+        "name": "史密斯",
+        "position": "后卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202501/22/7735165c.png"
+    },
+    {
+        "id": 24,
+        "name": "米勒",
+        "position": "前锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/10/d9ae93e3.png"
+    },
+    {
+        "id": 0,
+        "name": "布里奇斯",
+        "position": "小前锋",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202410/09/4ce64f0f.png"
+    },
+    {
+        "id": 1,
+        "name": "鲍尔",
+        "position": "控卫",
+        "team": "hornets",
+        "teamName": "夏洛特黄蜂",
+        "image": "https://file.qiumiwu.com/player/202501/14/192a187e.png"
+    },
+    {
+        "id": 93,
+        "name": "彭达",
+        "position": "前锋",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202506/27/3df4d57a.png"
+    },
+    {
+        "id": 11,
+        "name": "理查德森",
+        "position": "后卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202506/26/63dff70d.png"
+    },
+    {
+        "id": 22,
+        "name": "贝恩",
+        "position": "分卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/10/3dd062c1.png"
+    },
+    {
+        "id": 21,
+        "name": "琼斯",
+        "position": "控卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/09/8a65d805.png"
+    },
+    {
+        "id": 55,
+        "name": "汤普森",
+        "position": "后卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202110/12/84ffb5ea.png"
+    },
+    {
+        "id": 8,
+        "name": "麦克朗",
+        "position": "后卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/10/dc9efad0.png"
+    },
+    {
+        "id": 23,
+        "name": "席尔瓦",
+        "position": "前锋",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202504/15/ae8c8daa.png"
+    },
+    {
+        "id": 10,
+        "name": "约瑟夫",
+        "position": "控卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/09/681857d7.png"
+    },
+    {
+        "id": 35,
+        "name": "比塔泽",
+        "position": "中锋",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/10/8137d7ee.png"
+    },
+    {
+        "id": 0,
+        "name": "布莱克",
+        "position": "后卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/10/e1f0ce83.png"
+    },
+    {
+        "id": 13,
+        "name": "霍华德",
+        "position": "后卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/10/286af65b.png"
+    },
+    {
+        "id": 12,
+        "name": "奎因",
+        "position": "分卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202412/05/5d1f604a.png"
+    },
+    {
+        "id": 34,
+        "name": "卡特",
+        "position": "中锋",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/09/a5097a12.png"
+    },
+    {
+        "id": 1,
+        "name": "艾萨克",
+        "position": "大前锋",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/09/28a0ba6f.png"
+    },
+    {
+        "id": 2,
+        "name": "休斯坦",
+        "position": "后卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/10/9add139d.png"
+    },
+    {
+        "id": 5,
+        "name": "班凯罗",
+        "position": "大前锋",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/10/459418a8.png"
+    },
+    {
+        "id": 4,
+        "name": "萨格斯",
+        "position": "分卫",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202412/05/c2fe089a.png"
+    },
+    {
+        "id": 22,
+        "name": "瓦格纳",
+        "position": "小前锋",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/10/e1b8dc88.png"
+    },
+    {
+        "id": 21,
+        "name": "瓦格纳",
+        "position": "中锋",
+        "team": "magic",
+        "teamName": "奥兰多魔术",
+        "image": "https://file.qiumiwu.com/player/202410/09/191fee29.png"
+    },
+    {
+        "id": 18,
+        "name": "沃尔夫",
+        "position": "前锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202506/11/051dd744.png"
+    },
+    {
+        "id": 9,
+        "name": "鲍威尔",
+        "position": "后卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202505/28/ce8382e8.png"
+    },
+    {
+        "id": 77,
+        "name": "萨拉夫",
+        "position": "后卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202505/29/eec5d7ac.png"
+    },
+    {
+        "id": 14,
+        "name": "曼恩",
+        "position": "分卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202507/17/043b1be7.png"
+    },
+    {
+        "id": 8,
+        "name": "德明",
+        "position": "后卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202505/28/d0cbb0af.png"
+    },
+    {
+        "id": 2,
+        "name": "特劳雷",
+        "position": "后卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202505/27/e5ca6e2b.png"
+    },
+    {
+        "id": 7,
+        "name": "波特",
+        "position": "前锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202507/16/3d9b3232.png"
+    },
+    {
+        "id": 26,
+        "name": "蒂姆",
+        "position": "前锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202504/10/4acda8c7.png"
+    },
+    {
+        "id": 10,
+        "name": "艾蒂安",
+        "position": "后卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202503/14/4af10266.png"
+    },
+    {
+        "id": 12,
+        "name": "埃布翁万",
+        "position": "前锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202501/30/5a1ccc55.png"
+    },
+    {
+        "id": 13,
+        "name": "马丁",
+        "position": "后卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202410/10/23818e33.png"
+    },
+    {
+        "id": 22,
+        "name": "威尔逊",
+        "position": "前锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202410/18/297703b9.png"
+    },
+    {
+        "id": 45,
+        "name": "约翰逊",
+        "position": "后卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202410/10/9b7d023b.png"
+    },
+    {
+        "id": 0,
+        "name": "怀特黑德",
+        "position": "前锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202410/10/9a666eb2.png"
+    },
+    {
+        "id": 21,
+        "name": "克洛尼",
+        "position": "前锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202410/10/8543d181.png"
+    },
+    {
+        "id": 33,
+        "name": "克拉克斯顿",
+        "position": "中锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202410/10/6ceba07e.png"
+    },
+    {
+        "id": 20,
+        "name": "夏普",
+        "position": "中锋",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202410/10/34cee45c.png"
+    },
+    {
+        "id": 24,
+        "name": "托马斯",
+        "position": "分卫",
+        "team": "nets",
+        "teamName": "布鲁克林篮网",
+        "image": "https://file.qiumiwu.com/player/202410/10/53496584.png"
+    }
         ];
 
         // 确保球员ID唯一性（如果多个球员有相同号码，这里简单处理为加后缀）
@@ -1247,61 +5494,54 @@
         renderPlayers(players);
 
         // 渲染球员卡片函数
-        function renderPlayers(playersArray) {
-            playersContainer.innerHTML = '';
-            
-            if (playersArray.length === 0) {
-                playersContainer.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-search"></i>
-                        <h3>未找到匹配的球员</h3>
-                        <p>请尝试其他搜索关键词或选择不同的球队筛选条件</p>
-                    </div>
-                `;
-                playerCountElement.textContent = '0';
-                return;
-            }
-            
-            // 添加延迟效果，让卡片依次出现
-            playersArray.forEach((player, index) => {
-                const playerCard = document.createElement('div');
-                playerCard.className = `player-card ${player.team}`;
-                playerCard.style.setProperty('--delay', index);
-                
-                playerCard.innerHTML = `
-                    <div class="player-image-container">
-                        <div class="player-image" style="background-image: url('${player.image}');"></div>
-                       
-                    </div>
-                    <div class="player-info">
-                        <h2 class="player-name">${player.name}</h2>
-                        <div class="player-position">位置：${player.position}</div>
-                        <div class="player-team">
-                            <div class="team-logo">${player.teamName.substring(0,1)}</div>
-                            ${player.teamName}
-                        </div>
-                        <div class="player-stats">
-                            <div class="stat">
-                                <div class="stat-value">${player.ppg}</div>
-                                <div class="stat-label">场均得分</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">${player.rpg}</div>
-                                <div class="stat-label">场均篮板</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">${player.apg}</div>
-                                <div class="stat-label">场均助攻</div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                playersContainer.appendChild(playerCard);
-            });
-            
-            playerCountElement.textContent = playersArray.length;
+        // 在renderPlayers函数中添加图片验证和默认处理
+function renderPlayers(playersArray) {
+    playersContainer.innerHTML = '';
+    
+    if (playersArray.length === 0) {
+        playersContainer.innerHTML = `
+            <div class="empty-state">
+                <i class="fas fa-search"></i>
+                <h3>未找到匹配的球员</h3>
+                <p>请尝试其他搜索关键词或选择不同的球队筛选条件</p>
+            </div>
+        `;
+        playerCountElement.textContent = '0';
+        return;
+    }
+    
+    playersArray.forEach((player, index) => {
+        const playerCard = document.createElement('div');
+        playerCard.className = `player-card ${player.team}`;
+        playerCard.style.setProperty('--delay', index);
+        
+        // 修复图片路径问题
+        let imageUrl = player.image;
+        // 添加协议头（如果缺失）
+        if (imageUrl && !imageUrl.startsWith('http')) {
+            imageUrl = 'https:' + imageUrl;
         }
+        
+        playerCard.innerHTML = `
+            <div class="player-image-container">
+                <div class="player-image" style="background-image: url('${imageUrl || 'https://via.placeholder.com/260x190?text=No+Image'}');"></div>
+            </div>
+            <div class="player-info">
+                <h2 class="player-name">${player.name}</h2>
+                <div class="player-position">位置：${player.position}</div>
+                <div class="player-team">
+                    <div class="team-logo">${player.teamName.substring(0,1)}</div>
+                    ${player.teamName}
+                </div>
+                <!-- 已移除场均数据部分 -->
+            </div>
+        `;
+        
+        playersContainer.appendChild(playerCard);
+    });
+    
+    playerCountElement.textContent = playersArray.length;
+}
 
         // 球队过滤功能
         filterButtons.forEach(button => {
@@ -1350,13 +5590,28 @@
             renderPlayers(filteredPlayers);
         }
 
-        // 随机球员按钮功能
         randomBtn.addEventListener('click', () => {
-            // 从所有球员中随机选择12位
-            const shuffled = [...players].sort(() => 0.5 - Math.random());
-            const randomPlayers = shuffled.slice(0, 12);
-            renderPlayers(randomPlayers);
-        });
+    // 定义五个标准位置
+    const positions = ['后卫', '分卫', '小前锋', '大前锋', '中锋'];
+    const selectedPlayers = [];
+    
+    // 遍历每个位置，随机选择一名该位置的球员
+    positions.forEach(position => {
+        // 过滤出当前位置的所有球员
+        const playersInPosition = players.filter(player => player.position === position);
+        
+        if (playersInPosition.length > 0) {
+            // 随机选择一名该位置的球员
+            const randomIndex = Math.floor(Math.random() * playersInPosition.length);
+            selectedPlayers.push(playersInPosition[randomIndex]);
+        } else {
+            console.warn(`位置 ${position} 没有球员，无法选择`);
+        }
+    });
+    
+    // 渲染选中的五名球员
+    renderPlayers(selectedPlayers);
+});
 
         // 显示所有球员按钮
         allBtn.addEventListener('click', () => {
