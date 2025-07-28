@@ -5467,24 +5467,27 @@ function renderPlayers(playersArray) {
 // 随机球员按钮
 randomBtn.addEventListener('click', () => {
     // 定义五个标准位置
-    const positions = 'Guard', 'Forward', 'Center', 'Forward-Center', 'Guard-Forward';
-    const selectedPlayers = ;
+    const positions = ['Guard', 'Forward', 'Center', 'Forward-Center', 'Guard-Forward'];
+    const selectedPlayers = [];
     
-    // 遍历每个位置，随机选择一名该位置的球员
+    // 遍历每个位置，每个位置随机选择两名球员
     positions.forEach(position => {
         // 过滤出当前位置的所有球员
         const playersInPosition = players.filter(player => player.position === position);
         
-        if (playersInPosition.length > 0) {
-            // 随机选择一名该位置的球员
-            const randomIndex = Math.floor(Math.random() * playersInPosition.length);
-            selectedPlayers.push(playersInPositionrandomIndex);
+        if (playersInPosition.length >= 2) {
+            // 避免重复选择，先复制数组再随机抽取
+            const shuffled = [...playersInPosition].sort(() => 0.5 - Math.random());
+            // 取前两名球员
+            const twoPlayers = shuffled.slice(0, 2);
+            selectedPlayers.push(...twoPlayers);
         } else {
-            console.warn(`位置 ${position} 没有球员，无法选择`);
+            console.warn(`位置 ${position} 球员数量不足2名，无法选择`);
         }
     });
-renderPlayers(selectedPlayers);});
-    
+    renderPlayers(selectedPlayers);
+});
+
 
 
         // 显示所有球员按钮
