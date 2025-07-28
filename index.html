@@ -5466,59 +5466,26 @@ function renderPlayers(playersArray) {
         }
 // 随机球员按钮
 randomBtn.addEventListener('click', () => {
-    // 定义位置分组
-    const guardPositions = ['guard']; // 后卫位置(1-2号位)
-    const forwardPositions = ['forward']; // 前锋位置(3号位)
-    const centerPositions = ['center','forward-center']; // 中锋/大前锋位置(4-5号位)
+    // 定义五个标准位置
+    const positions = 'Guard', 'Forward', 'Center', 'Forward-Center', 'Guard-Forward';
+    const selectedPlayers = ;
     
-    const selectedPlayers = [];
-    
-    // 随机选择4个后卫
-    for (let i = 0; i < 4; i++) {
-        // 随机选择一个后卫位置
-        const randomPos = guardPositions[Math.floor(Math.random() * guardPositions.length)];
-        const playersInPosition = players.filter(player => player.position === randomPos);
+    // 遍历每个位置，随机选择一名该位置的球员
+    positions.forEach(position => {
+        // 过滤出当前位置的所有球员
+        const playersInPosition = players.filter(player => player.position === position);
         
-        if (playersInPosition.length > 0) {
+        if (playersInPosition.length > 1) {
+            // 随机选择一名该位置的球员
             const randomIndex = Math.floor(Math.random() * playersInPosition.length);
-            selectedPlayers.push(playersInPosition[randomIndex]);
+            selectedPlayers.push(playersInPositionrandomIndex);
         } else {
-            console.warn(`后卫位置 ${randomPos} 没有球员，无法选择`);
+            console.warn(`位置 ${position} 没有球员，无法选择`);
         }
-    }
+    });
+
     
-    // 随机选择4个前锋
-    for (let i = 0; i < 4; i++) {
-        // 随机选择一个前锋位置
-        const randomPos = forwardPositions[Math.floor(Math.random() * forwardPositions.length)];
-        const playersInPosition = players.filter(player => player.position === randomPos);
-        
-        if (playersInPosition.length > 0) {
-            const randomIndex = Math.floor(Math.random() * playersInPosition.length);
-            selectedPlayers.push(playersInPosition[randomIndex]);
-        } else {
-            console.warn(`前锋位置 ${randomPos} 没有球员，无法选择`);
-        }
-    }
-    
-    // 随机选择2个中锋/大前锋
-    for (let i = 0; i < 2; i++) {
-        // 随机选择一个中锋/大前锋位置
-        const randomPos = centerPositions[Math.floor(Math.random() * centerPositions.length)];
-        const playersInPosition = players.filter(player => player.position === randomPos);
-        
-        if (playersInPosition.length > 0) {
-            const randomIndex = Math.floor(Math.random() * playersInPosition.length);
-            selectedPlayers.push(playersInPosition[randomIndex]);
-        } else {
-            console.warn(`中锋/大前锋位置 ${randomPos} 没有球员，无法选择`);
-        }
-    }
-    
-    // 现在selectedPlayers包含4个后卫、4个前锋和2个中锋/大前锋
-    
-    renderPlayers(selectedPlayers);
-});
+
 
         // 显示所有球员按钮
         allBtn.addEventListener('click', () => {
