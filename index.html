@@ -5475,7 +5475,7 @@ randomBtn.addEventListener('click', () => {
         // 过滤出当前位置的所有球员
         const playersInPosition = players.filter(player => player.position === position);
         
-        if (playersInPosition.length > 1) {
+        if (playersInPosition.length > 0) {
             // 随机选择一名该位置的球员
             const randomIndex = Math.floor(Math.random() * playersInPosition.length);
             selectedPlayers.push(playersInPositionrandomIndex);
@@ -5483,7 +5483,7 @@ randomBtn.addEventListener('click', () => {
             console.warn(`位置 ${position} 没有球员，无法选择`);
         }
     });
-
+renderPlayers(selectedPlayers);});
     
 
 
